@@ -1,0 +1,11 @@
+includes:
+    - vendor/jangregor/phpstan-prophecy/extension.neon
+    - vendor/thecodingmachine/phpstan-safe-rule/phpstan-safe-rule.neon
+
+parameters:
+  level: 8
+  paths:
+    - src
+    - build
+    - Tests
+  checkMissingIterableValueType: false

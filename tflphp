@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+use Pedros80\Build\Commands\BuildClasses;
+use Pedros80\Build\Commands\GetStationData;
+use Symfony\Component\Console\Application;
+
+require __DIR__ . '/vendor/autoload.php';
+
+$application = new Application();
+
+$application->add(new GetStationData());
+$application->add(new BuildClasses());
+
+$application->run();
