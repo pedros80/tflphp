@@ -15,6 +15,6 @@ final class InvalidLineSeverityCode extends Exception
 
     public static function fromInt(int $severity): InvalidLineSeverityCode
     {
-        return new InvalidLineSeverityCode("'{$severity} is not a valid line severity code.");
+        return new InvalidLineSeverityCode("'{$severity}' is not a valid line severity code.");
     }
 }

@@ -15,6 +15,6 @@ final class InvalidLineMode extends Exception
 
     public static function fromString(string $mode): InvalidLineMode
     {
-        return new InvalidLineMode("'{$mode} is not a valid line mode.");
+        return new InvalidLineMode("'{$mode}' is not a valid line mode.");
     }
 }

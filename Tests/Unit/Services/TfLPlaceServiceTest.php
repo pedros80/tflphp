@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Services;
 
 use GuzzleHttp\Client;
@@ -121,5 +123,4 @@ final class TfLPlaceServiceTest extends TestCase
 
         $service->searchByName('Hyde Park Street (Bayswater Road)', ['blah']);
     }
-
 }

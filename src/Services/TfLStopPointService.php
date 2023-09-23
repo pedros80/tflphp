@@ -6,6 +6,7 @@ namespace Pedros80\TfLphp\Services;
 
 use Pedros80\TfLphp\Contracts\StopPointService;
 use Pedros80\TfLphp\Exceptions\MethodNotImplemented;
+use Pedros80\TfLphp\Exceptions\MissingRequiredPlaceTypes;
 use Pedros80\TfLphp\Services\Service;
 
 final class TfLStopPointService extends Service implements StopPointService
@@ -13,6 +14,7 @@ final class TfLStopPointService extends Service implements StopPointService
     public function getPlacesByIdAndTypes(string $id, array $types = []): array
     {
         $this->validator->isValidNaptan($id);
+        $this->validator->hasStopPointTypes($types);
         $this->validator->isValidStopPointType($types);
 
         $this->url[] = $id;
@@ -64,6 +66,7 @@ final class TfLStopPointService extends Service implements StopPointService
     public function getStopPointsByMode(array $modes, int $page = 1): array
     {
         $this->validator->isValidStopPointMode($modes);
+        $this->validator->isValidPage($page);
 
         $this->url[] = 'Mode';
         $this->url[] = $modes;

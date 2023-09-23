@@ -15,6 +15,6 @@ final class InvalidDayOfWeek extends Exception
 
     public static function fromString(string $day): InvalidDayOfWeek
     {
-        return new InvalidDayOfWeek("'{$day} is not a valid day of the week.");
+        return new InvalidDayOfWeek("'{$day}' is not a valid day of the week.");
     }
 }

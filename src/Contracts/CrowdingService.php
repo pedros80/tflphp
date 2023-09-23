@@ -11,19 +11,19 @@ interface CrowdingService
      *
      * @link https://api-portal.tfl.gov.uk/api-details#api=crowding&operation=dayofweek
      */
-    public function dayOfWeek(string $naptan, string $dayOfWeek): array;
+    public function getByDayOfWeek(string $naptan, string $dayOfWeek): array;
 
     /**
      * Returns live crowding information for Naptan
      *
      * @link https://api-portal.tfl.gov.uk/api-details#api=crowding&operation=live
      */
-    public function live(string $naptan): array;
+    public function getLiveByNaptan(string $naptan): array;
 
     /**
      * Returns crowding information for Naptan
      *
      * @link https://api-portal.tfl.gov.uk/api-details#api=crowding&operation=naptan
      */
-    public function naptan(string $naptan): array;
+    public function getByNaptan(string $naptan): array;
 }

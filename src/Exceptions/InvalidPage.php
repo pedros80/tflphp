@@ -6,15 +6,15 @@ namespace Pedros80\TfLphp\Exceptions;
 
 use Exception;
 
-final class InvalidDateTime extends Exception
+final class InvalidPage extends Exception
 {
     private function __construct(string $message)
     {
         parent::__construct($message, 400);
     }
 
-    public static function fromString(string $dateTime): InvalidDateTime
+    public static function fromInt(int $page): InvalidPage
     {
-        return new InvalidDateTime("'{$dateTime}' is not a valid RFC3339 date time.");
+        return new InvalidPage("'{$page}' is not a valid page number.");
     }
 }

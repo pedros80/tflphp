@@ -15,6 +15,6 @@ final class InvalidStationCode extends Exception
 
     public static function fromCode(string $code): InvalidStationCode
     {
-        return new InvalidStationCode("'{$code} is not a valid station code.");
+        return new InvalidStationCode("'{$code}' is not a valid station code.");
     }
 }

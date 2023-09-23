@@ -15,6 +15,6 @@ final class InvalidStopPointMode extends Exception
 
     public static function fromString(string $mode): InvalidStopPointMode
     {
-        return new InvalidStopPointMode("'{$mode} is not a valid stop point mode.");
+        return new InvalidStopPointMode("'{$mode}' is not a valid stop point mode.");
     }
 }

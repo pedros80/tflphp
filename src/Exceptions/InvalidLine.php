@@ -15,6 +15,6 @@ final class InvalidLine extends Exception
 
     public static function fromString(string $line): InvalidLine
     {
-        return new InvalidLine("'{$line} is not a valid line.");
+        return new InvalidLine("'{$line}' is not a valid line.");
     }
 }

@@ -9,7 +9,7 @@ use Pedros80\TfLphp\Services\Service;
 
 final class TfLCrowdingService extends Service implements CrowdingService
 {
-    public function dayOfWeek(string $naptan, string $dayOfWeek): array
+    public function getByDayOfWeek(string $naptan, string $dayOfWeek): array
     {
         $this->validator->isValidNaptan($naptan);
         $this->validator->isValidDayOfTheWeek($dayOfWeek);
@@ -20,7 +20,7 @@ final class TfLCrowdingService extends Service implements CrowdingService
         return $this->get();
     }
 
-    public function live(string $naptan): array
+    public function getLiveByNaptan(string $naptan): array
     {
         $this->validator->isValidNaptan($naptan);
 
@@ -30,7 +30,7 @@ final class TfLCrowdingService extends Service implements CrowdingService
         return $this->get();
     }
 
-    public function naptan(string $naptan): array
+    public function getByNaptan(string $naptan): array
     {
         $this->validator->isValidNaptan($naptan);
 

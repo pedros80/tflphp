@@ -22,11 +22,13 @@ use Pedros80\TfLphp\Exceptions\InvalidLine;
 use Pedros80\TfLphp\Exceptions\InvalidLineMode;
 use Pedros80\TfLphp\Exceptions\InvalidLineSeverityCode;
 use Pedros80\TfLphp\Exceptions\InvalidLongitude;
+use Pedros80\TfLphp\Exceptions\InvalidPage;
 use Pedros80\TfLphp\Exceptions\InvalidPlaceType;
 use Pedros80\TfLphp\Exceptions\InvalidServiceType;
 use Pedros80\TfLphp\Exceptions\InvalidSmsCode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointMode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointType;
+use Pedros80\TfLphp\Exceptions\MissingRequiredPlaceTypes;
 use Pedros80\TfLphp\Params\Station;
 use Safe\DateTime;
 use Safe\Exceptions\DatetimeException;
@@ -185,6 +187,24 @@ final class Validator
             } catch (ValueError) {
                 throw InvalidStopPointMode::fromString($mode);
             }
+        }
+
+        return true;
+    }
+
+    public function hasStopPointTypes(array $types): bool
+    {
+        if (!count($types)) {
+            throw MissingRequiredPlaceTypes::new();
+        }
+
+        return true;
+    }
+
+    public function isValidPage(int $page): bool
+    {
+        if ($page < 1) {
+            throw InvalidPage::fromInt($page);
         }
 
         return true;

@@ -15,6 +15,6 @@ final class InvalidLongitude extends Exception
 
     public static function fromString(string $value): InvalidLongitude
     {
-        return new InvalidLongitude("{$value} is not a valid longitude. Must be between -180 and 180");
+        return new InvalidLongitude("'{$value}' is not a valid longitude. Must be between -180 and 180");
     }
 }

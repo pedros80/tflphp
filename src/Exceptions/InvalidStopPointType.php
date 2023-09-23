@@ -15,6 +15,6 @@ final class InvalidStopPointType extends Exception
 
     public static function fromString(string $type): InvalidStopPointType
     {
-        return new InvalidStopPointType("'{$type} is not a valid stop point type.");
+        return new InvalidStopPointType("'{$type}' is not a valid stop point type.");
     }
 }

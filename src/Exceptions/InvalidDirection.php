@@ -15,6 +15,6 @@ final class InvalidDirection extends Exception
 
     public static function fromString(string $direction): InvalidDirection
     {
-        return new InvalidDirection("'{$direction} is not a valid direction.");
+        return new InvalidDirection("'{$direction}' is not a valid direction.");
     }
 }

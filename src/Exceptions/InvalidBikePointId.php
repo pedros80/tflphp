@@ -15,6 +15,6 @@ final class InvalidBikePointId extends Exception
 
     public static function fromString(string $id): InvalidBikePointId
     {
-        return new InvalidBikePointId("'{$id} is not a valid bike point id.");
+        return new InvalidBikePointId("'{$id}' is not a valid bike point id.");
     }
 }

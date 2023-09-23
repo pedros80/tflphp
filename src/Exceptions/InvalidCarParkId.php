@@ -15,6 +15,6 @@ final class InvalidCarParkId extends Exception
 
     public static function fromString(string $id): InvalidCarParkId
     {
-        return new InvalidCarParkId("'{$id} is not a valid car park id.");
+        return new InvalidCarParkId("'{$id}' is not a valid car park id.");
     }
 }

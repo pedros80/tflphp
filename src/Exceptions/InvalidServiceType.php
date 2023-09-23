@@ -15,6 +15,6 @@ final class InvalidServiceType extends Exception
 
     public static function fromString(string $type): InvalidServiceType
     {
-        return new InvalidServiceType("'{$type} is not a valid service type.");
+        return new InvalidServiceType("'{$type}' is not a valid service type.");
     }
 }

@@ -15,6 +15,6 @@ final class InvalidSmsCode extends Exception
 
     public static function fromString(string $code): InvalidSmsCode
     {
-        return new InvalidSmsCode("'{$code} is not a valid sms code.");
+        return new InvalidSmsCode("'{$code}' is not a valid sms code.");
     }
 }

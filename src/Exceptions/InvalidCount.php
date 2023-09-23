@@ -15,6 +15,6 @@ final class InvalidCount extends Exception
 
     public static function fromInt(int $count): InvalidCount
     {
-        return new InvalidCount("'{$count} is not a valid count.");
+        return new InvalidCount("'{$count}' is not a valid count.");
     }
 }

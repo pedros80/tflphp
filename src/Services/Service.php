@@ -31,6 +31,8 @@ abstract class Service
             $url   = "{$url}{$glue}api_key={$this->apiKey}";
         }
 
+        var_dump($url);
+
         return $this->client->get($url);
     }
 
