@@ -26,7 +26,7 @@ interface LineService
      *
      * @link https://api-portal.tfl.gov.uk/api-details#api=Line&operation=Line_DisruptionByPathIds
      */
-    public function getDistruptionsForLines(array $lines): array;
+    public function getDisruptionsForLines(array $lines): array;
 
     /**
      * Get the list of arrival predictions for given line ids

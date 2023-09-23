@@ -38,7 +38,7 @@ final class TfLLineService extends Service implements LineService
         );
     }
 
-    public function getDistruptionsForLines(array $lines): array
+    public function getDisruptionsForLines(array $lines): array
     {
         $this->validator->isValidLine($lines);
 

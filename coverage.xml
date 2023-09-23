@@ -542,7 +542,7 @@
       <line num="36" type="stmt" count="0"/>
       <line num="37" type="stmt" count="0"/>
       <line num="38" type="stmt" count="0"/>
-      <line num="41" type="method" name="getDistruptionsForLines" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="41" type="method" name="getDisruptionsForLines" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="43" type="stmt" count="0"/>
       <line num="45" type="stmt" count="0"/>
       <line num="46" type="stmt" count="0"/>
