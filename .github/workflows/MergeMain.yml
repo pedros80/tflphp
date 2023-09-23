@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  nrephp-tests:
+  tflphp-tests:
     runs-on: ubuntu-latest
     steps:
     - name: Setup PHP
