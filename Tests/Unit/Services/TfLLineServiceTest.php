@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Services;
 
+use DateTime;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Pedros80\TfLphp\Enums\Directions;
 use Pedros80\TfLphp\Enums\LineModes;
 use Pedros80\TfLphp\Enums\Lines;
+use Pedros80\TfLphp\Enums\TubeDisruptionSeverities;
+use Pedros80\TfLphp\Exceptions\InvalidDateTime;
 use Pedros80\TfLphp\Exceptions\InvalidDirection;
 use Pedros80\TfLphp\Exceptions\InvalidLine;
 use Pedros80\TfLphp\Exceptions\InvalidLineMode;
+use Pedros80\TfLphp\Exceptions\InvalidLineSeverityCode;
 use Pedros80\TfLphp\Exceptions\InvalidStationCode;
 use Pedros80\TfLphp\Services\TfLLineService;
 use Pedros80\TfLphp\Services\Validator;
@@ -346,5 +350,301 @@ final class TfLLineServiceTest extends TestCase
             $client->get("Meta/{$data['path']}?api_key=api_key")->shouldBeCalled()->willReturn(new Response(body: '{}'));
             $service->$method();
         }
+    }
+
+    public function testGetLinesAndRoutesForModeInvalidModeThrowsException(): void
+    {
+        $this->expectException(InvalidLineMode::class);
+        $this->expectExceptionMessage("'InvalidMode' is not a valid line mode.");
+
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getLinesAndRoutesForMode(['InvalidMode']);
+    }
+
+    public function testGetLinesAndRoutesForModeHitsCorrectUrl(): void
+    {
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $client->get('Mode/bus/Route?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
+        $service->getLinesAndRoutesForMode([LineModes::BUS->value]);
+    }
+
+    public function testGetLinesAndRoutesForModeNightServiceTypesHitsCorrectUrl(): void
+    {
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $client->get('Mode/bus/Route?serviceTypes=Night&api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
+        $service->getLinesAndRoutesForMode([LineModes::BUS->value], true);
+    }
+
+    public function testGetRoutesForLineInvalidLineThrowsException(): void
+    {
+        $this->expectException(InvalidLine::class);
+        $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
+
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getRoutesForLine('InvalidLine', Directions::INBOUND->value);
+    }
+
+    public function testGetRoutesForLineInvalidDirectionThrowsException(): void
+    {
+        $this->expectException(InvalidDirection::class);
+        $this->expectExceptionMessage("'InvalidDirection' is not a valid direction.");
+
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getRoutesForLine(Lines::DISTRICT->value, 'InvalidDirection');
+    }
+
+    public function testGetRoutesForLineHitsCorrectUtl(): void
+    {
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $client->get('district/Route/Sequence/inbound?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
+        $service->getRoutesForLine(Lines::DISTRICT->value, Directions::INBOUND->value);
+    }
+
+    public function testGetRoutesForLineNightServicesHitsCorrectUtl(): void
+    {
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $client->get('district/Route/Sequence/inbound?serviceTypes=Night&api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
+        $service->getRoutesForLine(
+            line: Lines::DISTRICT->value,
+            direction: Directions::INBOUND->value,
+            night: true);
+    }
+
+    public function testGetRoutesForLineExcludeCrowdingHitsCorrectUrl(): void
+    {
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $client->get('district/Route/Sequence/inbound?excludeCrowding=true&api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
+        $service->getRoutesForLine(
+            line: Lines::DISTRICT->value,
+            direction: Directions::INBOUND->value,
+            excludeCrowding: true
+        );
+    }
+
+    public function testGetLinesByIdInvalidLineThrowsException(): void
+    {
+        $this->expectException(InvalidLine::class);
+        $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
+
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getLinesById(['InvalidLine']);
+    }
+
+    public function testGetLinesByIdHitsCorrectUrl(): void
+    {
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $client->get('bakerloo,central?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
+        $service->getLinesById([Lines::BAKERLOO->value, Lines::CENTRAL->value]);
+    }
+
+    public function testGetLinesByModeInvalidLineThrowsException(): void
+    {
+        $this->expectException(InvalidLineMode::class);
+        $this->expectExceptionMessage("'InvalidLineMode' is not a valid line mode.");
+
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getLinesByMode(['InvalidLineMode']);
+    }
+
+    public function testGetLinesByModeHitsCorrectUrl(): void
+    {
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $client->get('Mode/bus?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
+        $service->getLinesByMode([LineModes::BUS->value]);
+    }
+
+    public function testGetLineStatusBySeverityInvalidSeverityThrowsException(): void
+    {
+        $this->expectException(InvalidLineSeverityCode::class);
+        $this->expectExceptionMessage("'999' is not a valid line severity code.");
+
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getLineStatusBySeverity(999);
+    }
+
+    public function testGetLineStatusBySeverityHitsCorrectUrl(): void
+    {
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $client->get('Status/1?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
+        $service->getLineStatusBySeverity(TubeDisruptionSeverities::CLOSED->value);
+    }
+
+    public function testGetLineStatusByPeriodInvalidLineThrowsException(): void
+    {
+        $this->expectException(InvalidLine::class);
+        $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
+
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getLineStatusByPeriod(
+            ['InvalidLine'],
+            date(DateTime::RFC3339, strtotime('-1 week')),
+            date(DateTime::RFC3339)
+        );
+    }
+
+    public function testGetLineStatusByPeriodInvalidDateFromThrowsException(): void
+    {
+        $this->expectException(InvalidDateTime::class);
+        $this->expectExceptionMessage("'last week' is not a valid RFC3339 date time.");
+
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getLineStatusByPeriod(
+            [Lines::CENTRAL->value],
+            'last week',
+            date(DateTime::RFC3339)
+        );
+    }
+
+    public function testGetLineStatusByPeriodInvalidDateToThrowsException(): void
+    {
+        $this->expectException(InvalidDateTime::class);
+        $this->expectExceptionMessage("'last week' is not a valid RFC3339 date time.");
+
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getLineStatusByPeriod(
+            [Lines::CENTRAL->value],
+            date(DateTime::RFC3339),
+            'last week'
+        );
+    }
+
+    public function testGetLineStatusByPeriodHitsCorrectUrl(): void
+    {
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $from = date(DateTime::RFC3339, strtotime('-1 week'));
+        $to   = date(DateTime::RFC3339);
+
+        $client->get("circle/Status/{$from}/to/{$to}?detail=true&api_key=api_key")
+            ->shouldBeCalled()
+            ->willReturn(new Response(body: '{}'));
+
+        $service->getLineStatusByPeriod([Lines::CIRCLE->value], $from, $to);
+    }
+
+    public function testGetLineStatusByPeriodNoDetailHitsCorrectUrl(): void
+    {
+        $client = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $from = date(DateTime::RFC3339, strtotime('-1 week'));
+        $to   = date(DateTime::RFC3339);
+
+        $client->get("circle/Status/{$from}/to/{$to}?detail=false&api_key=api_key")
+            ->shouldBeCalled()
+            ->willReturn(new Response(body: '{}'));
+
+        $service->getLineStatusByPeriod([Lines::CIRCLE->value], $from, $to, false);
     }
 }
