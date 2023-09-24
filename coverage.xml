@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1695502982">
-  <project timestamp="1695502982">
+<coverage generated="1695511192">
+  <project timestamp="1695511192">
     <file name="/home/runner/work/tflphp/tflphp/src/Contracts/AccidentStatsService.php">
       <metrics loc="16" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
@@ -207,13 +207,13 @@
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Exceptions/InvalidDirection.php">
       <class name="Pedros80\TfLphp\Exceptions\InvalidDirection" namespace="global">
-        <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="13" type="stmt" count="0"/>
-      <line num="16" type="method" name="fromString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <metrics loc="21" ncloc="21" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="1"/>
+      <line num="13" type="stmt" count="1"/>
+      <line num="16" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="18" type="stmt" count="1"/>
+      <metrics loc="21" ncloc="21" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Exceptions/InvalidLatitude.php">
       <class name="Pedros80\TfLphp\Exceptions\InvalidLatitude" namespace="global">
@@ -229,20 +229,20 @@
       <class name="Pedros80\TfLphp\Exceptions\InvalidLine" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="1"/>
-      <line num="13" type="stmt" count="1"/>
-      <line num="16" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="18" type="stmt" count="1"/>
+      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="5"/>
+      <line num="13" type="stmt" count="5"/>
+      <line num="16" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="18" type="stmt" count="5"/>
       <metrics loc="21" ncloc="21" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Exceptions/InvalidLineMode.php">
       <class name="Pedros80\TfLphp\Exceptions\InvalidLineMode" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="1"/>
-      <line num="13" type="stmt" count="1"/>
-      <line num="16" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="18" type="stmt" count="1"/>
+      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="2"/>
+      <line num="13" type="stmt" count="2"/>
+      <line num="16" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="18" type="stmt" count="2"/>
       <metrics loc="21" ncloc="21" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Exceptions/InvalidLineSeverityCode.php">
@@ -309,10 +309,10 @@
       <class name="Pedros80\TfLphp\Exceptions\InvalidStationCode" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="7"/>
-      <line num="13" type="stmt" count="7"/>
-      <line num="16" type="method" name="fromCode" visibility="public" complexity="1" crap="1" count="7"/>
-      <line num="18" type="stmt" count="7"/>
+      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="9"/>
+      <line num="13" type="stmt" count="9"/>
+      <line num="16" type="method" name="fromCode" visibility="public" complexity="1" crap="1" count="9"/>
+      <line num="18" type="stmt" count="9"/>
       <metrics loc="21" ncloc="21" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Exceptions/InvalidStopPointMode.php">
@@ -404,9 +404,9 @@
       <class name="Pedros80\TfLphp\Params\Station" namespace="global">
         <metrics complexity="4" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="2" elements="7" coveredelements="3"/>
       </class>
-      <line num="527" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="18"/>
-      <line num="530" type="stmt" count="18"/>
-      <line num="531" type="stmt" count="7"/>
+      <line num="527" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="24"/>
+      <line num="530" type="stmt" count="24"/>
+      <line num="531" type="stmt" count="9"/>
       <line num="535" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="537" type="stmt" count="0"/>
       <line num="540" type="method" name="name" visibility="public" complexity="1" crap="2" count="0"/>
@@ -417,31 +417,31 @@
       <class name="Pedros80\TfLphp\Services\Service" namespace="global">
         <metrics complexity="9" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="21" elements="25" coveredelements="25"/>
       </class>
-      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="61"/>
-      <line num="24" type="stmt" count="61"/>
-      <line num="26" type="method" name="call" visibility="protected" complexity="3" crap="3" count="38"/>
-      <line num="28" type="stmt" count="38"/>
-      <line num="29" type="stmt" count="34"/>
-      <line num="30" type="stmt" count="34"/>
-      <line num="31" type="stmt" count="34"/>
-      <line num="34" type="stmt" count="38"/>
-      <line num="37" type="method" name="get" visibility="protected" complexity="1" crap="1" count="38"/>
-      <line num="39" type="stmt" count="38"/>
-      <line num="41" type="stmt" count="38"/>
-      <line num="42" type="stmt" count="38"/>
-      <line num="44" type="stmt" count="38"/>
-      <line num="47" type="method" name="getUrl" visibility="protected" complexity="4" crap="4" count="38"/>
-      <line num="49" type="stmt" count="38"/>
-      <line num="50" type="stmt" count="38"/>
-      <line num="51" type="stmt" count="38"/>
-      <line num="52" type="stmt" count="38"/>
-      <line num="53" type="stmt" count="38"/>
-      <line num="54" type="stmt" count="38"/>
-      <line num="55" type="stmt" count="38"/>
-      <line num="57" type="stmt" count="38"/>
-      <line num="59" type="stmt" count="38"/>
-      <line num="60" type="stmt" count="11"/>
-      <line num="63" type="stmt" count="38"/>
+      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="78"/>
+      <line num="24" type="stmt" count="78"/>
+      <line num="26" type="method" name="call" visibility="protected" complexity="3" crap="3" count="47"/>
+      <line num="28" type="stmt" count="47"/>
+      <line num="29" type="stmt" count="41"/>
+      <line num="30" type="stmt" count="41"/>
+      <line num="31" type="stmt" count="41"/>
+      <line num="34" type="stmt" count="47"/>
+      <line num="37" type="method" name="get" visibility="protected" complexity="1" crap="1" count="47"/>
+      <line num="39" type="stmt" count="47"/>
+      <line num="41" type="stmt" count="47"/>
+      <line num="42" type="stmt" count="47"/>
+      <line num="44" type="stmt" count="47"/>
+      <line num="47" type="method" name="getUrl" visibility="protected" complexity="4" crap="4" count="47"/>
+      <line num="49" type="stmt" count="47"/>
+      <line num="50" type="stmt" count="47"/>
+      <line num="51" type="stmt" count="47"/>
+      <line num="52" type="stmt" count="47"/>
+      <line num="53" type="stmt" count="47"/>
+      <line num="54" type="stmt" count="47"/>
+      <line num="55" type="stmt" count="47"/>
+      <line num="57" type="stmt" count="47"/>
+      <line num="59" type="stmt" count="47"/>
+      <line num="60" type="stmt" count="14"/>
+      <line num="63" type="stmt" count="47"/>
       <metrics loc="66" ncloc="66" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="21" elements="25" coveredelements="25"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Services/TfLAccidentStatsService.php">
@@ -524,7 +524,7 @@
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Services/TfLLineService.php">
       <class name="Pedros80\TfLphp\Services\TfLLineService" namespace="global">
-        <metrics complexity="29" methods="20" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="7" elements="116" coveredelements="8"/>
+        <metrics complexity="29" methods="20" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="54" elements="116" coveredelements="64"/>
       </class>
       <line num="13" type="method" name="getRoutes" visibility="public" complexity="3" crap="3" count="4"/>
       <line num="15" type="stmt" count="4"/>
@@ -534,62 +534,62 @@
       <line num="21" type="stmt" count="3"/>
       <line num="22" type="stmt" count="1"/>
       <line num="25" type="stmt" count="3"/>
-      <line num="28" type="method" name="getDisruptionsForAllLines" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="30" type="stmt" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <line num="36" type="stmt" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <line num="38" type="stmt" count="0"/>
-      <line num="41" type="method" name="getDisruptionsForLines" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="43" type="stmt" count="0"/>
-      <line num="45" type="stmt" count="0"/>
-      <line num="46" type="stmt" count="0"/>
-      <line num="48" type="stmt" count="0"/>
-      <line num="49" type="stmt" count="0"/>
-      <line num="50" type="stmt" count="0"/>
-      <line num="53" type="method" name="getArrivalsByLine" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="55" type="stmt" count="0"/>
-      <line num="57" type="stmt" count="0"/>
-      <line num="58" type="stmt" count="0"/>
-      <line num="60" type="stmt" count="0"/>
-      <line num="63" type="method" name="getArrivalsByLineAndStop" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="65" type="stmt" count="0"/>
-      <line num="66" type="stmt" count="0"/>
-      <line num="68" type="stmt" count="0"/>
-      <line num="69" type="stmt" count="0"/>
-      <line num="70" type="stmt" count="0"/>
-      <line num="72" type="stmt" count="0"/>
-      <line num="73" type="stmt" count="0"/>
-      <line num="74" type="stmt" count="0"/>
-      <line num="77" type="stmt" count="0"/>
-      <line num="78" type="stmt" count="0"/>
-      <line num="79" type="stmt" count="0"/>
-      <line num="82" type="stmt" count="0"/>
-      <line num="85" type="method" name="getServingStations" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="87" type="stmt" count="0"/>
-      <line num="89" type="stmt" count="0"/>
-      <line num="90" type="stmt" count="0"/>
-      <line num="92" type="stmt" count="0"/>
-      <line num="93" type="stmt" count="0"/>
-      <line num="96" type="stmt" count="0"/>
-      <line num="99" type="method" name="getDisruptionCategories" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="101" type="stmt" count="0"/>
-      <line num="102" type="stmt" count="0"/>
-      <line num="104" type="stmt" count="0"/>
-      <line num="107" type="method" name="getModes" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="109" type="stmt" count="0"/>
-      <line num="110" type="stmt" count="0"/>
-      <line num="112" type="stmt" count="0"/>
-      <line num="115" type="method" name="getServiceTypes" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="117" type="stmt" count="0"/>
-      <line num="118" type="stmt" count="0"/>
-      <line num="120" type="stmt" count="0"/>
-      <line num="123" type="method" name="getSeverityCodes" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="125" type="stmt" count="0"/>
-      <line num="126" type="stmt" count="0"/>
-      <line num="128" type="stmt" count="0"/>
+      <line num="28" type="method" name="getDisruptionsForAllLines" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="30" type="stmt" count="2"/>
+      <line num="32" type="stmt" count="1"/>
+      <line num="33" type="stmt" count="1"/>
+      <line num="34" type="stmt" count="1"/>
+      <line num="36" type="stmt" count="1"/>
+      <line num="37" type="stmt" count="1"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="41" type="method" name="getDisruptionsForLines" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="43" type="stmt" count="2"/>
+      <line num="45" type="stmt" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="48" type="stmt" count="1"/>
+      <line num="49" type="stmt" count="1"/>
+      <line num="50" type="stmt" count="1"/>
+      <line num="53" type="method" name="getArrivalsByLine" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="55" type="stmt" count="2"/>
+      <line num="57" type="stmt" count="1"/>
+      <line num="58" type="stmt" count="1"/>
+      <line num="60" type="stmt" count="1"/>
+      <line num="63" type="method" name="getArrivalsByLineAndStop" visibility="public" complexity="3" crap="3" count="7"/>
+      <line num="65" type="stmt" count="7"/>
+      <line num="66" type="stmt" count="6"/>
+      <line num="68" type="stmt" count="5"/>
+      <line num="69" type="stmt" count="5"/>
+      <line num="70" type="stmt" count="5"/>
+      <line num="72" type="stmt" count="5"/>
+      <line num="73" type="stmt" count="2"/>
+      <line num="74" type="stmt" count="1"/>
+      <line num="77" type="stmt" count="4"/>
+      <line num="78" type="stmt" count="2"/>
+      <line num="79" type="stmt" count="1"/>
+      <line num="82" type="stmt" count="3"/>
+      <line num="85" type="method" name="getServingStations" visibility="public" complexity="2" crap="2" count="3"/>
+      <line num="87" type="stmt" count="3"/>
+      <line num="89" type="stmt" count="2"/>
+      <line num="90" type="stmt" count="2"/>
+      <line num="92" type="stmt" count="2"/>
+      <line num="93" type="stmt" count="1"/>
+      <line num="96" type="stmt" count="2"/>
+      <line num="99" type="method" name="getDisruptionCategories" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="101" type="stmt" count="1"/>
+      <line num="102" type="stmt" count="1"/>
+      <line num="104" type="stmt" count="1"/>
+      <line num="107" type="method" name="getModes" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="109" type="stmt" count="1"/>
+      <line num="110" type="stmt" count="1"/>
+      <line num="112" type="stmt" count="1"/>
+      <line num="115" type="method" name="getServiceTypes" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="117" type="stmt" count="1"/>
+      <line num="118" type="stmt" count="1"/>
+      <line num="120" type="stmt" count="1"/>
+      <line num="123" type="method" name="getSeverityCodes" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="125" type="stmt" count="1"/>
+      <line num="126" type="stmt" count="1"/>
+      <line num="128" type="stmt" count="1"/>
       <line num="131" type="method" name="getLinesAndRoutesForMode" visibility="public" complexity="2" crap="6" count="0"/>
       <line num="133" type="stmt" count="0"/>
       <line num="135" type="stmt" count="0"/>
@@ -642,7 +642,7 @@
       <line num="224" type="stmt" count="0"/>
       <line num="227" type="method" name="search" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="229" type="stmt" count="0"/>
-      <metrics loc="232" ncloc="232" classes="1" methods="20" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="7" elements="116" coveredelements="8"/>
+      <metrics loc="232" ncloc="232" classes="1" methods="20" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="54" elements="116" coveredelements="64"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Services/TfLModeService.php">
       <class name="Pedros80\TfLphp\Services\TfLModeService" namespace="global">
@@ -916,7 +916,7 @@
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Services/Validator.php">
       <class name="Pedros80\TfLphp\Services\Validator" namespace="global">
-        <metrics complexity="54" methods="19" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="92" coveredstatements="64" elements="111" coveredelements="78"/>
+        <metrics complexity="54" methods="19" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="92" coveredstatements="70" elements="111" coveredelements="85"/>
       </class>
       <line num="41" type="method" name="isValidLatLng" visibility="public" complexity="5" crap="30" count="0"/>
       <line num="43" type="stmt" count="0"/>
@@ -962,27 +962,27 @@
       <line num="128" type="stmt" count="0"/>
       <line num="129" type="stmt" count="0"/>
       <line num="132" type="stmt" count="0"/>
-      <line num="135" type="method" name="isValidDirection" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="137" type="stmt" count="0"/>
-      <line num="139" type="stmt" count="0"/>
-      <line num="141" type="stmt" count="0"/>
-      <line num="142" type="stmt" count="0"/>
-      <line num="143" type="stmt" count="0"/>
-      <line num="147" type="stmt" count="0"/>
-      <line num="150" type="method" name="isValidLine" visibility="public" complexity="3" crap="3" count="2"/>
-      <line num="152" type="stmt" count="2"/>
-      <line num="154" type="stmt" count="2"/>
-      <line num="156" type="stmt" count="2"/>
-      <line num="157" type="stmt" count="1"/>
-      <line num="158" type="stmt" count="1"/>
-      <line num="162" type="stmt" count="1"/>
-      <line num="165" type="method" name="isValidLineMode" visibility="public" complexity="3" crap="3" count="3"/>
-      <line num="167" type="stmt" count="3"/>
-      <line num="169" type="stmt" count="3"/>
-      <line num="171" type="stmt" count="3"/>
-      <line num="172" type="stmt" count="1"/>
-      <line num="173" type="stmt" count="1"/>
-      <line num="177" type="stmt" count="2"/>
+      <line num="135" type="method" name="isValidDirection" visibility="public" complexity="3" crap="3" count="2"/>
+      <line num="137" type="stmt" count="2"/>
+      <line num="139" type="stmt" count="2"/>
+      <line num="141" type="stmt" count="2"/>
+      <line num="142" type="stmt" count="1"/>
+      <line num="143" type="stmt" count="1"/>
+      <line num="147" type="stmt" count="1"/>
+      <line num="150" type="method" name="isValidLine" visibility="public" complexity="3" crap="3" count="16"/>
+      <line num="152" type="stmt" count="16"/>
+      <line num="154" type="stmt" count="16"/>
+      <line num="156" type="stmt" count="16"/>
+      <line num="157" type="stmt" count="5"/>
+      <line num="158" type="stmt" count="5"/>
+      <line num="162" type="stmt" count="11"/>
+      <line num="165" type="method" name="isValidLineMode" visibility="public" complexity="3" crap="3" count="5"/>
+      <line num="167" type="stmt" count="5"/>
+      <line num="169" type="stmt" count="5"/>
+      <line num="171" type="stmt" count="5"/>
+      <line num="172" type="stmt" count="2"/>
+      <line num="173" type="stmt" count="2"/>
+      <line num="177" type="stmt" count="3"/>
       <line num="180" type="method" name="isValidStopPointMode" visibility="public" complexity="3" crap="3" count="7"/>
       <line num="182" type="stmt" count="7"/>
       <line num="184" type="stmt" count="7"/>
@@ -1005,11 +1005,11 @@
       <line num="220" type="stmt" count="1"/>
       <line num="221" type="stmt" count="1"/>
       <line num="225" type="stmt" count="1"/>
-      <line num="228" type="method" name="isValidNaptan" visibility="public" complexity="2" crap="2" count="18"/>
-      <line num="230" type="stmt" count="18"/>
-      <line num="232" type="stmt" count="18"/>
-      <line num="233" type="stmt" count="18"/>
-      <line num="236" type="stmt" count="11"/>
+      <line num="228" type="method" name="isValidNaptan" visibility="public" complexity="2" crap="2" count="24"/>
+      <line num="230" type="stmt" count="24"/>
+      <line num="232" type="stmt" count="24"/>
+      <line num="233" type="stmt" count="24"/>
+      <line num="236" type="stmt" count="16"/>
       <line num="239" type="method" name="isValidSmsCode" visibility="public" complexity="3" crap="3" count="2"/>
       <line num="241" type="stmt" count="2"/>
       <line num="243" type="stmt" count="2"/>
@@ -1027,10 +1027,10 @@
       <line num="269" type="stmt" count="2"/>
       <line num="270" type="stmt" count="1"/>
       <line num="273" type="stmt" count="1"/>
-      <line num="276" type="method" name="ensureArray" visibility="private" complexity="2" crap="2" count="43"/>
-      <line num="278" type="stmt" count="43"/>
-      <metrics loc="281" ncloc="281" classes="1" methods="19" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="92" coveredstatements="64" elements="111" coveredelements="78"/>
+      <line num="276" type="method" name="ensureArray" visibility="private" complexity="2" crap="2" count="59"/>
+      <line num="278" type="stmt" count="59"/>
+      <metrics loc="281" ncloc="281" classes="1" methods="19" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="92" coveredstatements="70" elements="111" coveredelements="85"/>
     </file>
-    <metrics files="76" loc="3878" ncloc="3396" classes="40" methods="147" coveredmethods="78" conditionals="0" coveredconditionals="0" statements="535" coveredstatements="240" elements="682" coveredelements="318"/>
+    <metrics files="76" loc="3878" ncloc="3396" classes="40" methods="147" coveredmethods="90" conditionals="0" coveredconditionals="0" statements="535" coveredstatements="295" elements="682" coveredelements="385"/>
   </project>
 </coverage>
