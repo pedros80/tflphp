@@ -17,6 +17,6 @@ final class InvalidLatitude extends Exception
 
     public static function fromString(string $value): InvalidLatitude
     {
-        return new InvalidLatitude("'{$value}' is not a valid latitude. Must be between -90 and 90");
+        return new InvalidLatitude("'{$value}' is not a valid latitude. Must be between -90 and 90.");
     }
 }
