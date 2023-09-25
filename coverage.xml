@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1695679893">
-  <project timestamp="1695679893">
+<coverage generated="1695680470">
+  <project timestamp="1695680470">
     <file name="/home/runner/work/tflphp/tflphp/src/Contracts/AccidentStatsService.php">
       <metrics loc="16" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
@@ -349,11 +349,11 @@
       <class name="Pedros80\TfLphp\Exceptions\MethodNotImplemented" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
       </class>
-      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="1"/>
-      <line num="13" type="stmt" count="1"/>
-      <line num="16" type="method" name="fromName" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="18" type="stmt" count="1"/>
-      <line num="20" type="stmt" count="1"/>
+      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="5"/>
+      <line num="13" type="stmt" count="5"/>
+      <line num="16" type="method" name="fromName" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="18" type="stmt" count="5"/>
+      <line num="20" type="stmt" count="5"/>
       <metrics loc="23" ncloc="23" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Exceptions/MissingRequiredPlaceTypes.php">
@@ -446,8 +446,8 @@
       <class name="Pedros80\TfLphp\Services\Service" namespace="global">
         <metrics complexity="9" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="21" elements="25" coveredelements="25"/>
       </class>
-      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="97"/>
-      <line num="24" type="stmt" count="97"/>
+      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="101"/>
+      <line num="24" type="stmt" count="101"/>
       <line num="26" type="method" name="call" visibility="protected" complexity="3" crap="3" count="57"/>
       <line num="28" type="stmt" count="57"/>
       <line num="29" type="stmt" count="51"/>
@@ -553,7 +553,7 @@
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Services/TfLLineService.php">
       <class name="Pedros80\TfLphp\Services\TfLLineService" namespace="global">
-        <metrics complexity="29" methods="20" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="92" elements="116" coveredelements="108"/>
+        <metrics complexity="29" methods="20" coveredmethods="20" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="96" elements="116" coveredelements="116"/>
       </class>
       <line num="13" type="method" name="getRoutes" visibility="public" complexity="3" crap="3" count="4"/>
       <line num="15" type="stmt" count="4"/>
@@ -663,15 +663,15 @@
       <line num="205" type="stmt" count="2"/>
       <line num="207" type="stmt" count="2"/>
       <line num="209" type="stmt" count="2"/>
-      <line num="212" type="method" name="getLineStatusForModes" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="214" type="stmt" count="0"/>
-      <line num="217" type="method" name="getLineStatusById" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="219" type="stmt" count="0"/>
-      <line num="222" type="method" name="getTimetableForLineAndStation" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="224" type="stmt" count="0"/>
-      <line num="227" type="method" name="search" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="229" type="stmt" count="0"/>
-      <metrics loc="232" ncloc="232" classes="1" methods="20" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="92" elements="116" coveredelements="108"/>
+      <line num="212" type="method" name="getLineStatusForModes" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="214" type="stmt" count="1"/>
+      <line num="217" type="method" name="getLineStatusById" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="219" type="stmt" count="1"/>
+      <line num="222" type="method" name="getTimetableForLineAndStation" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="224" type="stmt" count="1"/>
+      <line num="227" type="method" name="search" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="229" type="stmt" count="1"/>
+      <metrics loc="232" ncloc="232" classes="1" methods="20" coveredmethods="20" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="96" elements="116" coveredelements="116"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Services/TfLModeService.php">
       <class name="Pedros80\TfLphp\Services\TfLModeService" namespace="global">
@@ -1065,6 +1065,6 @@
       <line num="290" type="stmt" count="76"/>
       <metrics loc="293" ncloc="293" classes="1" methods="20" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="83" elements="116" coveredelements="101"/>
     </file>
-    <metrics files="78" loc="4685" ncloc="4199" classes="42" methods="156" coveredmethods="111" conditionals="0" coveredconditionals="0" statements="548" coveredstatements="405" elements="704" coveredelements="516"/>
+    <metrics files="78" loc="4685" ncloc="4199" classes="42" methods="156" coveredmethods="115" conditionals="0" coveredconditionals="0" statements="548" coveredstatements="409" elements="704" coveredelements="524"/>
   </project>
 </coverage>
