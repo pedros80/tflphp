@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1695685206">
-  <project timestamp="1695685206">
+<coverage generated="1695686369">
+  <project timestamp="1695686369">
     <file name="/home/runner/work/tflphp/tflphp/src/Contracts/AccidentStatsService.php">
       <metrics loc="16" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
@@ -217,13 +217,13 @@
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Exceptions/InvalidLatitude.php">
       <class name="Pedros80\TfLphp\Exceptions\InvalidLatitude" namespace="global">
-        <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="13" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="18" type="method" name="fromString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="20" type="stmt" count="0"/>
-      <metrics loc="23" ncloc="23" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+      <line num="13" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="1"/>
+      <line num="15" type="stmt" count="1"/>
+      <line num="18" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="20" type="stmt" count="1"/>
+      <metrics loc="23" ncloc="23" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Exceptions/InvalidLine.php">
       <class name="Pedros80\TfLphp\Exceptions\InvalidLine" namespace="global">
@@ -257,13 +257,13 @@
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Exceptions/InvalidLongitude.php">
       <class name="Pedros80\TfLphp\Exceptions\InvalidLongitude" namespace="global">
-        <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="13" type="stmt" count="0"/>
-      <line num="16" type="method" name="fromString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <metrics loc="21" ncloc="21" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>
+      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="1"/>
+      <line num="13" type="stmt" count="1"/>
+      <line num="16" type="method" name="fromString" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="18" type="stmt" count="1"/>
+      <metrics loc="21" ncloc="21" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Exceptions/InvalidPage.php">
       <class name="Pedros80\TfLphp\Exceptions\InvalidPage" namespace="global">
@@ -945,16 +945,16 @@
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Services/Validator.php">
       <class name="Pedros80\TfLphp\Services\Validator" namespace="global">
-        <metrics complexity="56" methods="20" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="83" elements="116" coveredelements="101"/>
+        <metrics complexity="56" methods="20" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="90" elements="116" coveredelements="109"/>
       </class>
-      <line num="42" type="method" name="isValidLatLng" visibility="public" complexity="5" crap="30" count="0"/>
-      <line num="44" type="stmt" count="0"/>
-      <line num="45" type="stmt" count="0"/>
-      <line num="47" type="stmt" count="0"/>
-      <line num="48" type="stmt" count="0"/>
-      <line num="51" type="stmt" count="0"/>
-      <line num="52" type="stmt" count="0"/>
-      <line num="55" type="stmt" count="0"/>
+      <line num="42" type="method" name="isValidLatLng" visibility="public" complexity="5" crap="5" count="3"/>
+      <line num="44" type="stmt" count="3"/>
+      <line num="45" type="stmt" count="3"/>
+      <line num="47" type="stmt" count="3"/>
+      <line num="48" type="stmt" count="1"/>
+      <line num="51" type="stmt" count="2"/>
+      <line num="52" type="stmt" count="1"/>
+      <line num="55" type="stmt" count="1"/>
       <line num="58" type="method" name="isValidRoute" visibility="public" complexity="2" crap="2" count="2"/>
       <line num="60" type="stmt" count="2"/>
       <line num="62" type="stmt" count="2"/>
@@ -1063,8 +1063,8 @@
       <line num="285" type="stmt" count="1"/>
       <line num="288" type="method" name="ensureArray" visibility="private" complexity="2" crap="2" count="76"/>
       <line num="290" type="stmt" count="76"/>
-      <metrics loc="293" ncloc="293" classes="1" methods="20" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="83" elements="116" coveredelements="101"/>
+      <metrics loc="293" ncloc="293" classes="1" methods="20" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="90" elements="116" coveredelements="109"/>
     </file>
-    <metrics files="78" loc="4685" ncloc="4199" classes="42" methods="156" coveredmethods="118" conditionals="0" coveredconditionals="0" statements="548" coveredstatements="412" elements="704" coveredelements="530"/>
+    <metrics files="78" loc="4685" ncloc="4199" classes="42" methods="156" coveredmethods="123" conditionals="0" coveredconditionals="0" statements="548" coveredstatements="423" elements="704" coveredelements="546"/>
   </project>
 </coverage>
