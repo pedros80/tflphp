@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1695680470">
-  <project timestamp="1695680470">
+<coverage generated="1695685206">
+  <project timestamp="1695685206">
     <file name="/home/runner/work/tflphp/tflphp/src/Contracts/AccidentStatsService.php">
       <metrics loc="16" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
@@ -349,11 +349,11 @@
       <class name="Pedros80\TfLphp\Exceptions\MethodNotImplemented" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
       </class>
-      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="5"/>
-      <line num="13" type="stmt" count="5"/>
-      <line num="16" type="method" name="fromName" visibility="public" complexity="1" crap="1" count="5"/>
-      <line num="18" type="stmt" count="5"/>
-      <line num="20" type="stmt" count="5"/>
+      <line num="11" type="method" name="__construct" visibility="private" complexity="1" crap="1" count="8"/>
+      <line num="13" type="stmt" count="8"/>
+      <line num="16" type="method" name="fromName" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="18" type="stmt" count="8"/>
+      <line num="20" type="stmt" count="8"/>
       <metrics loc="23" ncloc="23" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Exceptions/MissingRequiredPlaceTypes.php">
@@ -446,8 +446,8 @@
       <class name="Pedros80\TfLphp\Services\Service" namespace="global">
         <metrics complexity="9" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="21" elements="25" coveredelements="25"/>
       </class>
-      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="101"/>
-      <line num="24" type="stmt" count="101"/>
+      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="104"/>
+      <line num="24" type="stmt" count="104"/>
       <line num="26" type="method" name="call" visibility="protected" complexity="3" crap="3" count="57"/>
       <line num="28" type="stmt" count="57"/>
       <line num="29" type="stmt" count="51"/>
@@ -720,7 +720,7 @@
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Services/TfLPlaceService.php">
       <class name="Pedros80\TfLphp\Services\TfLPlaceService" namespace="global">
-        <metrics complexity="10" methods="7" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="20" elements="39" coveredelements="24"/>
+        <metrics complexity="10" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="21" elements="39" coveredelements="26"/>
       </class>
       <line num="13" type="method" name="getPlaceCategories" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="15" type="stmt" count="1"/>
@@ -759,9 +759,9 @@
       <line num="75" type="stmt" count="0"/>
       <line num="76" type="stmt" count="0"/>
       <line num="79" type="stmt" count="0"/>
-      <line num="82" type="method" name="getPlacesByGeo" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="84" type="stmt" count="0"/>
-      <metrics loc="87" ncloc="87" classes="1" methods="7" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="20" elements="39" coveredelements="24"/>
+      <line num="82" type="method" name="getPlacesByGeo" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="84" type="stmt" count="1"/>
+      <metrics loc="87" ncloc="87" classes="1" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="21" elements="39" coveredelements="26"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Services/TfLRoadService.php">
       <class name="Pedros80\TfLphp\Services\TfLRoadService" namespace="global">
@@ -791,7 +791,7 @@
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Services/TfLStopPointService.php">
       <class name="Pedros80\TfLphp\Services\TfLStopPointService" namespace="global">
-        <metrics complexity="32" methods="21" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="117" coveredstatements="37" elements="138" coveredelements="44"/>
+        <metrics complexity="32" methods="21" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="117" coveredstatements="39" elements="138" coveredelements="48"/>
       </class>
       <line num="14" type="method" name="getPlacesByIdAndTypes" visibility="public" complexity="1" crap="1" count="4"/>
       <line num="16" type="stmt" count="4"/>
@@ -827,8 +827,8 @@
       <line num="72" type="stmt" count="2"/>
       <line num="74" type="stmt" count="2"/>
       <line num="76" type="stmt" count="2"/>
-      <line num="79" type="method" name="searchPointsByRadius" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="81" type="stmt" count="0"/>
+      <line num="79" type="method" name="searchPointsByRadius" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="81" type="stmt" count="1"/>
       <line num="84" type="method" name="getTaxiRanksById" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="86" type="stmt" count="2"/>
       <line num="88" type="stmt" count="1"/>
@@ -929,9 +929,9 @@
       <line num="264" type="stmt" count="0"/>
       <line num="265" type="stmt" count="0"/>
       <line num="268" type="stmt" count="0"/>
-      <line num="271" type="method" name="search" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="273" type="stmt" count="0"/>
-      <metrics loc="276" ncloc="276" classes="1" methods="21" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="117" coveredstatements="37" elements="138" coveredelements="44"/>
+      <line num="271" type="method" name="search" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="273" type="stmt" count="1"/>
+      <metrics loc="276" ncloc="276" classes="1" methods="21" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="117" coveredstatements="39" elements="138" coveredelements="48"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Services/TfLVehicleService.php">
       <class name="Pedros80\TfLphp\Services\TfLVehicleService" namespace="global">
@@ -1065,6 +1065,6 @@
       <line num="290" type="stmt" count="76"/>
       <metrics loc="293" ncloc="293" classes="1" methods="20" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="83" elements="116" coveredelements="101"/>
     </file>
-    <metrics files="78" loc="4685" ncloc="4199" classes="42" methods="156" coveredmethods="115" conditionals="0" coveredconditionals="0" statements="548" coveredstatements="409" elements="704" coveredelements="524"/>
+    <metrics files="78" loc="4685" ncloc="4199" classes="42" methods="156" coveredmethods="118" conditionals="0" coveredconditionals="0" statements="548" coveredstatements="412" elements="704" coveredelements="530"/>
   </project>
 </coverage>
