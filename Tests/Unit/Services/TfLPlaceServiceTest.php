@@ -7,6 +7,7 @@ namespace Tests\Unit\Services;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Pedros80\TfLphp\Exceptions\InvalidPlaceType;
+use Pedros80\TfLphp\Exceptions\MethodNotImplemented;
 use Pedros80\TfLphp\Services\TfLPlaceService;
 use Pedros80\TfLphp\Services\Validator;
 use PHPUnit\Framework\TestCase;
@@ -122,5 +123,20 @@ final class TfLPlaceServiceTest extends TestCase
         );
 
         $service->searchByName('Hyde Park Street (Bayswater Road)', ['blah']);
+    }
+
+    public function testGetPlacesByGeoThrowsException(): void
+    {
+        $this->expectException(MethodNotImplemented::class);
+        $this->expectExceptionMessage("'PlaceService::getPlacesByGeo' method not implemented.");
+
+        $client  = $this->prophesize(Client::class);
+        $service = new TfLPlaceService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getPlacesByGeo('123', '123');
     }
 }

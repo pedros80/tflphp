@@ -12,6 +12,7 @@ use Pedros80\TfLphp\Exceptions\InvalidSmsCode;
 use Pedros80\TfLphp\Exceptions\InvalidStationCode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointMode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointType;
+use Pedros80\TfLphp\Exceptions\MethodNotImplemented;
 use Pedros80\TfLphp\Exceptions\MissingRequiredPlaceTypes;
 use Pedros80\TfLphp\Services\TfLStopPointService;
 use Pedros80\TfLphp\Services\Validator;
@@ -310,5 +311,33 @@ final class TfLStopPointServiceTest extends TestCase
         $client->get('Sms/50505?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
 
         $service->getStopPointBySMSCode('50505');
+    }
+
+    public function testSearchPointsByRadiusThrowsException(): void
+    {
+        $this->expectException(MethodNotImplemented::class);
+
+        $client  = $this->prophesize(Client::class);
+        $service = new TfLStopPointService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->searchPointsByRadius(123, 123, ['stopTypes']);
+    }
+
+    public function testSearchThrowsException(): void
+    {
+        $this->expectException(MethodNotImplemented::class);
+
+        $client  = $this->prophesize(Client::class);
+        $service = new TfLStopPointService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->search('query');
     }
 }
