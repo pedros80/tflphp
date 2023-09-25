@@ -13,9 +13,6 @@ final class GenerateStation extends FromDataFile
     private const CSV        = 'Stations';
     private const CLASS_NAME = 'Station';
 
-    // @todo - this needs sorted; what becomes the case?
-    // @todo - or should this be a value object style thing?
-
     public function execute(): void
     {
         $stations = $this->getStations();

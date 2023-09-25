@@ -50,22 +50,22 @@ final class TfLLineService extends Service implements LineService
         );
     }
 
-    public function getArrivalsByLine(array $lines): array
+    public function getArrivalsByLine(array $routes): array
     {
-        $this->validator->isValidLine($lines);
+        $this->validator->isValidRoute($routes);
 
-        $this->url[] = $lines;
+        $this->url[] = $routes;
         $this->url[] = 'Arrivals';
 
         return $this->get();
     }
 
-    public function getArrivalsByLineAndStop(array $lines, string $stopPointId, ?string $direction = null, ?string $destinationStationId = null): array
+    public function getArrivalsByLineAndStop(array $routes, string $stopPointId, ?string $direction = null, ?string $destinationStationId = null): array
     {
-        $this->validator->isValidLine($lines);
+        $this->validator->isValidLine($routes);
         $this->validator->isValidNaptan($stopPointId);
 
-        $this->url[] = $lines;
+        $this->url[] = $routes;
         $this->url[] = 'Arrivals';
         $this->url[] = $stopPointId;
 

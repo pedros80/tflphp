@@ -12,6 +12,7 @@ use Pedros80\Build\Actions\GenerateLineServiceTypes;
 use Pedros80\Build\Actions\GeneratePlaceCategories;
 use Pedros80\Build\Actions\GeneratePlaceTypes;
 use Pedros80\Build\Actions\GenerateRoadDisruptionCategories;
+use Pedros80\Build\Actions\GenerateRoute;
 use Pedros80\Build\Actions\GenerateSeverityCodes;
 use Pedros80\Build\Actions\GenerateStation;
 use Pedros80\Build\Actions\GenerateStopPointInformationCategories;
@@ -40,6 +41,7 @@ final class BuildClasses extends Command
         $this->actions = new ActionFactory($input->getArgument('apiKey'));
 
         $actions = [
+            GenerateRoute::class,
             GenerateStopPointInformationCategories::class,
             GenerateStopPointModes::class,
             GenerateStopPointTypes::class,

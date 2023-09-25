@@ -16,6 +16,7 @@ use Pedros80\TfLphp\Exceptions\InvalidDirection;
 use Pedros80\TfLphp\Exceptions\InvalidLine;
 use Pedros80\TfLphp\Exceptions\InvalidLineMode;
 use Pedros80\TfLphp\Exceptions\InvalidLineSeverityCode;
+use Pedros80\TfLphp\Exceptions\InvalidRoute;
 use Pedros80\TfLphp\Exceptions\InvalidStationCode;
 use Pedros80\TfLphp\Services\TfLLineService;
 use Pedros80\TfLphp\Services\Validator;
@@ -28,7 +29,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetRoutesHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -41,7 +42,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetRoutesNightServicesHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -54,7 +55,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetRoutesLinesHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -70,7 +71,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidLine::class);
         $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -82,7 +83,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetDisruptionsForAllLinesHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -98,7 +99,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidLineMode::class);
         $this->expectExceptionMessage("'InvalidMode' is not a valid line mode.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -110,7 +111,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetDisruptionsForLinesHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -121,12 +122,12 @@ final class TfLLineServiceTest extends TestCase
         $service->getDisruptionsForLines([Lines::BAKERLOO->value, Lines::ELIZABETH->value]);
     }
 
-    public function testGetDisruptionsForLinesInvalidModesThrowsException(): void
+    public function testGetDisruptionsForLinesInvalidRouteThrowsException(): void
     {
         $this->expectException(InvalidLine::class);
         $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -138,7 +139,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetArrivalsByLineHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -151,17 +152,17 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetArrivalsByLineInvalidModesThrowsException(): void
     {
-        $this->expectException(InvalidLine::class);
-        $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
+        $this->expectException(InvalidRoute::class);
+        $this->expectExceptionMessage("'InvalidRoute' is not a valid route.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
             new Validator()
         );
 
-        $service->getArrivalsByLine(['InvalidLine']);
+        $service->getArrivalsByLine(['InvalidRoute']);
     }
 
     public function testGetArrivalsByLineAndStopInvalidLineThrowsException(): void
@@ -169,7 +170,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidLine::class);
         $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -184,7 +185,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidStationCode::class);
         $this->expectExceptionMessage("'InvalidStopId' is not a valid station code.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -199,7 +200,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidDirection::class);
         $this->expectExceptionMessage("'InvalidDirection' is not a valid direction.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -214,7 +215,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidStationCode::class);
         $this->expectExceptionMessage("'InvalidStationId' is not a valid station code.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -222,7 +223,7 @@ final class TfLLineServiceTest extends TestCase
         );
 
         $service->getArrivalsByLineAndStop(
-            lines: [Lines::BAKERLOO->value],
+            routes: [Lines::BAKERLOO->value],
             stopPointId: '910GBKRVS',
             destinationStationId: 'InvalidStationId'
         );
@@ -230,7 +231,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetArrivalsByLineAndStopHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -242,14 +243,14 @@ final class TfLLineServiceTest extends TestCase
             ->willReturn(new Response(body: '{}'));
 
         $service->getArrivalsByLineAndStop(
-            lines: [Lines::BAKERLOO->value, Lines::ELIZABETH->value],
+            routes: [Lines::BAKERLOO->value, Lines::ELIZABETH->value],
             stopPointId: '910GBKRVS'
         );
     }
 
     public function testGetArrivalsByLineAndStopWithDirectionHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -261,7 +262,7 @@ final class TfLLineServiceTest extends TestCase
             ->willReturn(new Response(body: '{}'));
 
         $service->getArrivalsByLineAndStop(
-            lines: [Lines::BAKERLOO->value, Lines::ELIZABETH->value],
+            routes: [Lines::BAKERLOO->value, Lines::ELIZABETH->value],
             stopPointId: '910GBKRVS',
             direction: Directions::INBOUND->value
         );
@@ -269,7 +270,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetArrivalsByLineAndStopWithDestinationHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -281,7 +282,7 @@ final class TfLLineServiceTest extends TestCase
             ->willReturn(new Response(body: '{}'));
 
         $service->getArrivalsByLineAndStop(
-            lines: [Lines::BAKERLOO->value, Lines::ELIZABETH->value],
+            routes: [Lines::BAKERLOO->value, Lines::ELIZABETH->value],
             stopPointId: '910GBKRVS',
             destinationStationId: '910GWOLWXR'
         );
@@ -292,7 +293,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidLine::class);
         $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -304,7 +305,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetServingStationsHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -317,7 +318,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetServingStationsTfLOnlyHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -337,7 +338,7 @@ final class TfLLineServiceTest extends TestCase
             ['path' => 'Severity', 'method' => 'getSeverityCodes'],
         ];
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -357,7 +358,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidLineMode::class);
         $this->expectExceptionMessage("'InvalidMode' is not a valid line mode.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -369,7 +370,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetLinesAndRoutesForModeHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -382,7 +383,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetLinesAndRoutesForModeNightServiceTypesHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -398,7 +399,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidLine::class);
         $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -413,7 +414,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidDirection::class);
         $this->expectExceptionMessage("'InvalidDirection' is not a valid direction.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -425,7 +426,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetRoutesForLineHitsCorrectUtl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -438,7 +439,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetRoutesForLineNightServicesHitsCorrectUtl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -449,12 +450,13 @@ final class TfLLineServiceTest extends TestCase
         $service->getRoutesForLine(
             line: Lines::DISTRICT->value,
             direction: Directions::INBOUND->value,
-            night: true);
+            night: true
+        );
     }
 
     public function testGetRoutesForLineExcludeCrowdingHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -474,7 +476,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidLine::class);
         $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -486,7 +488,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetLinesByIdHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -502,7 +504,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidLineMode::class);
         $this->expectExceptionMessage("'InvalidLineMode' is not a valid line mode.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -514,7 +516,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetLinesByModeHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -530,7 +532,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidLineSeverityCode::class);
         $this->expectExceptionMessage("'999' is not a valid line severity code.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -542,7 +544,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetLineStatusBySeverityHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -558,7 +560,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidLine::class);
         $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -577,7 +579,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidDateTime::class);
         $this->expectExceptionMessage("'last week' is not a valid RFC3339 date time.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -596,7 +598,7 @@ final class TfLLineServiceTest extends TestCase
         $this->expectException(InvalidDateTime::class);
         $this->expectExceptionMessage("'last week' is not a valid RFC3339 date time.");
 
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -612,7 +614,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetLineStatusByPeriodHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),
@@ -631,7 +633,7 @@ final class TfLLineServiceTest extends TestCase
 
     public function testGetLineStatusByPeriodNoDetailHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
             $client->reveal(),

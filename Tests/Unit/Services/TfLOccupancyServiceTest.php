@@ -62,7 +62,7 @@ final class TfLOccupancyServiceTest extends TestCase
 
     public function testGetOccupancyForCarParkHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLOccupancyService(
             'api_key',
             $client->reveal(),
@@ -75,7 +75,7 @@ final class TfLOccupancyServiceTest extends TestCase
 
     public function testGetOccupancyForAllCarParksHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLOccupancyService(
             'api_key',
             $client->reveal(),
@@ -88,7 +88,7 @@ final class TfLOccupancyServiceTest extends TestCase
 
     public function testGetOccupancyForChargeConnectorHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLOccupancyService(
             'api_key',
             $client->reveal(),
@@ -101,7 +101,7 @@ final class TfLOccupancyServiceTest extends TestCase
 
     public function testGetOccupancyForAllChargeConnectorsHitsCorrectUrl(): void
     {
-        $client = $this->prophesize(Client::class);
+        $client  = $this->prophesize(Client::class);
         $service = new TfLOccupancyService(
             'api_key',
             $client->reveal(),

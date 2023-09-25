@@ -25,13 +25,13 @@ enum StopPointInformationCategories: string
     public function availableKeys(): array
     {
         return match ($this) {
-            self::ACCESSIBILITY        => ['TaxiRankOutsideStation', 'SpecificEntranceInstructions', 'Toilet', 'AddtionalInformation', 'LimitedCapacityLift', 'AccessViaLift', 'BlueBadgeCarParkSpaces', 'ToiletNote', 'SpecificEntranceRequired'],
-            self::ADDRESS              => ['Address', 'PhoneNo'],
+            self::ACCESSIBILITY        => ['TaxiRankOutsideStation', 'SpecificEntranceRequired', 'AddtionalInformation', 'LimitedCapacityLift', 'ToiletNote', 'SpecificEntranceInstructions', 'Toilet', 'AccessViaLift', 'BlueBadgeCarParkSpaces'],
+            self::ADDRESS              => ['PhoneNo', 'Address'],
             self::DIRECTION            => ['Towards', 'CompassPoint'],
-            self::FACILITY             => ['Lifts', 'Boarding Ramp', 'Cash Machines', 'Waiting Room', 'Euro Cash Machines', 'Payphones', 'ASDA Click and Collect', 'Ticket Halls', 'Boarding Ramps', 'Escalators', 'Amazon Lockers', 'Other Facilities', 'Help Points', 'WiFi', 'Gates', 'Toilets', 'Bridge', 'Car park', 'Left Luggage', 'Photo Booths'],
+            self::FACILITY             => ['Boarding Ramp', 'Lifts', 'Cash Machines', 'Waiting Room', 'Euro Cash Machines', 'Payphones', 'ASDA Click and Collect', 'Ticket Halls', 'Boarding Ramps', 'Escalators', 'Help Points', 'WiFi', 'Bridge', 'Car park', 'Left Luggage', 'Photo Booths', 'Amazon Lockers', 'Other Facilities', 'Gates', 'Toilets'],
             self::GEO                  => ['Zone'],
             self::NEAREST_PLACES       => ['SourceSystemPlaceId'],
-            self::OPENING_TIME         => ['MonFriFrom', 'SunFrom', 'SatFrom', 'MonFriTo', 'SatTo', 'SunTo'],
+            self::OPENING_TIME         => ['SunFrom', 'MonFriFrom', 'MonFriTo', 'SatTo', 'SunTo', 'SatFrom'],
             self::SERVICE_INFO         => ['Night'],
             self::STATION_OWNED_BY_TFL => ['OwnedByTfl'],
             self::VISITOR_CENTRE       => ['Location'],

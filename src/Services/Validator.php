@@ -29,6 +29,7 @@ use Pedros80\TfLphp\Exceptions\InvalidSmsCode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointMode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointType;
 use Pedros80\TfLphp\Exceptions\MissingRequiredPlaceTypes;
+use Pedros80\TfLphp\Params\Route;
 use Pedros80\TfLphp\Params\Station;
 use Safe\DateTime;
 use Safe\Exceptions\DatetimeException;
@@ -49,6 +50,17 @@ final class Validator
 
         if ($lng < -180 || $lng > 180) {
             throw InvalidLongitude::fromString((string) $lng);
+        }
+
+        return true;
+    }
+
+    public function isValidRoute(string|array $routes): bool
+    {
+        $routes = $this->ensureArray($routes);
+
+        foreach ($routes as $route) {
+            new Route($route);
         }
 
         return true;
