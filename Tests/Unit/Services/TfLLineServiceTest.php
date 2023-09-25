@@ -18,6 +18,7 @@ use Pedros80\TfLphp\Exceptions\InvalidLineMode;
 use Pedros80\TfLphp\Exceptions\InvalidLineSeverityCode;
 use Pedros80\TfLphp\Exceptions\InvalidRoute;
 use Pedros80\TfLphp\Exceptions\InvalidStationCode;
+use Pedros80\TfLphp\Exceptions\MethodNotImplemented;
 use Pedros80\TfLphp\Services\TfLLineService;
 use Pedros80\TfLphp\Services\Validator;
 use PHPUnit\Framework\TestCase;
@@ -648,5 +649,65 @@ final class TfLLineServiceTest extends TestCase
             ->willReturn(new Response(body: '{}'));
 
         $service->getLineStatusByPeriod([Lines::CIRCLE->value], $from, $to, false);
+    }
+
+    public function testSearchThrowsNotImplementedException(): void
+    {
+        $this->expectException(MethodNotImplemented::class);
+        $this->expectExceptionMessage("'LineService::search' method not implemented.");
+
+        $client  = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->search('query');
+    }
+
+    public function testGetTimetableForLineAndStationThrowsNotImplementedException(): void
+    {
+        $this->expectException(MethodNotImplemented::class);
+        $this->expectExceptionMessage("'LineService::getTimetableForLineAndStation' method not implemented.");
+
+        $client  = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getTimetableForLineAndStation('line', 'fromStopPoint');
+    }
+
+    public function testGetLineStatusByIdThrowsNotImplementedException(): void
+    {
+        $this->expectException(MethodNotImplemented::class);
+        $this->expectExceptionMessage("'LineService::getLineStatusById' method not implemented.");
+
+        $client  = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getLineStatusById(['line']);
+    }
+
+    public function testGetLineStatusForModesThrowsNotImplementedException(): void
+    {
+        $this->expectException(MethodNotImplemented::class);
+        $this->expectExceptionMessage("'LineService::getLineStatusForModes' method not implemented.");
+
+        $client  = $this->prophesize(Client::class);
+        $service = new TfLLineService(
+            'api_key',
+            $client->reveal(),
+            new Validator()
+        );
+
+        $service->getLineStatusForModes(['mode']);
     }
 }
