@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Pedros80\TfLphp\Params;
 
-use Pedros80\TfLphp\Exceptions\InvalidRoute;
+use Pedros80\TfLphp\Exceptions\InvalidLine;
 
-final class Route
+final class Line
 {
     private const VALID = [
         1                              => ['mode' => 'bus', 'name' => '1'],
@@ -742,7 +742,7 @@ final class Route
         private string $id,
     ) {
         if (!in_array($id, array_keys(self::VALID))) {
-            throw InvalidRoute::fromString((string) $id);
+            throw InvalidLine::fromString((string) $id);
         }
     }
 
@@ -763,11 +763,11 @@ final class Route
 
     public static function bus(): array
     {
-        return array_filter(self::VALID, fn (array $route) => $route['mode'] === 'bus');
+        return array_filter(self::VALID, fn (array $line) => $line['mode'] === 'bus');
     }
 
     public static function tube(): array
     {
-        return array_filter(self::VALID, fn (array $route) => $route['mode'] === 'tube');
+        return array_filter(self::VALID, fn (array $line) => $line['mode'] === 'tube');
     }
 }

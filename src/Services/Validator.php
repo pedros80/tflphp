@@ -6,7 +6,6 @@ namespace Pedros80\TfLphp\Services;
 
 use Pedros80\TfLphp\Enums\Directions;
 use Pedros80\TfLphp\Enums\LineModes;
-use Pedros80\TfLphp\Enums\Lines;
 use Pedros80\TfLphp\Enums\PlaceTypes;
 use Pedros80\TfLphp\Enums\ServiceTypes;
 use Pedros80\TfLphp\Enums\StopPointModes;
@@ -18,7 +17,6 @@ use Pedros80\TfLphp\Exceptions\InvalidDateTime;
 use Pedros80\TfLphp\Exceptions\InvalidDayOfWeek;
 use Pedros80\TfLphp\Exceptions\InvalidDirection;
 use Pedros80\TfLphp\Exceptions\InvalidLatitude;
-use Pedros80\TfLphp\Exceptions\InvalidLine;
 use Pedros80\TfLphp\Exceptions\InvalidLineMode;
 use Pedros80\TfLphp\Exceptions\InvalidLineSeverityCode;
 use Pedros80\TfLphp\Exceptions\InvalidLongitude;
@@ -29,7 +27,7 @@ use Pedros80\TfLphp\Exceptions\InvalidSmsCode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointMode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointType;
 use Pedros80\TfLphp\Exceptions\MissingRequiredPlaceTypes;
-use Pedros80\TfLphp\Params\Route;
+use Pedros80\TfLphp\Params\Line;
 use Pedros80\TfLphp\Params\Station;
 use Safe\DateTime;
 use Safe\Exceptions\DatetimeException;
@@ -55,12 +53,12 @@ final class Validator
         return true;
     }
 
-    public function isValidRoute(string|array $routes): bool
+    public function isValidLine(string|array $lines): bool
     {
-        $routes = $this->ensureArray($routes);
+        $lines = $this->ensureArray($lines);
 
-        foreach ($routes as $route) {
-            new Route($route);
+        foreach ($lines as $line) {
+            new Line($line);
         }
 
         return true;
@@ -159,21 +157,6 @@ final class Validator
         return true;
     }
 
-    public function isValidLine(string|array $lines): bool
-    {
-        $lines = $this->ensureArray($lines);
-
-        foreach ($lines as $line) {
-            try {
-                Lines::from($line);
-            } catch (ValueError) {
-                throw InvalidLine::fromString($line);
-            }
-        }
-
-        return true;
-    }
-
     public function isValidLineMode(string|array $modes): bool
     {
         $modes = $this->ensureArray($modes);
@@ -232,17 +215,6 @@ final class Validator
             } catch (ValueError) {
                 throw InvalidStopPointType::fromString($type);
             }
-        }
-
-        return true;
-    }
-
-    public function isValidNaptan(string|array $codes): bool
-    {
-        $codes = $this->ensureArray($codes);
-
-        foreach ($codes as $code) {
-            new Station($code);
         }
 
         return true;

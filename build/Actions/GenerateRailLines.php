@@ -7,10 +7,10 @@ namespace Pedros80\Build\Actions;
 use Nette\PhpGenerator\EnumType;
 use Pedros80\Build\Actions\Abstractions\FromDataFile;
 
-final class GenerateLines extends FromDataFile
+final class GenerateRailLines extends FromDataFile
 {
     private const CSV       = 'ModesAndLines';
-    private const ENUM_NAME = 'Lines';
+    private const ENUM_NAME = 'RailLines';
 
     public function execute(): void
     {

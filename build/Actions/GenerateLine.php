@@ -6,32 +6,32 @@ namespace Pedros80\Build\Actions;
 
 use Nette\PhpGenerator\ClassType;
 use Pedros80\Build\Actions\Abstractions\FromService;
-use Pedros80\TfLphp\Exceptions\InvalidRoute;
-use Pedros80\TfLphp\Exceptions\InvalidStationCode;
+use Pedros80\TfLphp\Contracts\LineService;
+use Pedros80\TfLphp\Exceptions\InvalidLine;
 use Pedros80\TfLphp\Factories\ServiceFactory;
 
-final class GenerateRoute extends FromService
+final class GenerateLine extends FromService
 {
-    private const CLASS_NAME = 'Route';
+    private const CLASS_NAME = 'Line';
 
     public function execute(): void
     {
         /** @var LineService $service */
         $service = $this->getService(ServiceFactory::LINE);
 
-        $routes = $this->getParsedRoutes($service->getRoutes());
+        $lines = $this->getParsedLines($service->getRoutes());
 
-        $this->writeParam(self::CLASS_NAME, $this->getClass($routes), [InvalidRoute::class]);
+        $this->writeParam(self::CLASS_NAME, $this->getClass($lines), [InvalidLine::class]);
     }
 
-    private function getParsedRoutes(array $routes): array
+    private function getParsedLines(array $lines): array
     {
         $parsed = array_reduce(
-            $routes,
-            function (array $routes, array $route) {
-                $routes[(string) $route['id']] = ['mode' => $route['modeName'], 'name' => $route['name']];
+            $lines,
+            function (array $lines, array $line) {
+                $lines[(string) $line['id']] = ['mode' => $line['modeName'], 'name' => $line['name']];
 
-                return $routes;
+                return $lines;
             },
             []
         );
@@ -41,11 +41,11 @@ final class GenerateRoute extends FromService
         return $parsed;
     }
 
-    private function getClass(array $routes): ClassType
+    private function getClass(array $lines): ClassType
     {
         $class = new ClassType(self::CLASS_NAME);
         $class->setFinal();
-        $class->addConstant('VALID', $routes)->setPrivate();
+        $class->addConstant('VALID', $lines)->setPrivate();
 
         $this->addConstructor($class);
         $this->addToString($class);
@@ -61,7 +61,7 @@ final class GenerateRoute extends FromService
     {
         $constructor = $class->addMethod('__construct');
         $constructor->addPromotedParameter('id')->setType('string')->setPrivate();
-        $constructor->setBody("if (!in_array(\$id, array_keys(self::VALID))) {\n\t\tthrow InvalidRoute::fromString((string) \$id);\n\t}");
+        $constructor->setBody("if (!in_array(\$id, array_keys(self::VALID))) {\n\t\tthrow InvalidLine::fromString((string) \$id);\n\t}");
     }
 
     private function addToString(ClassType $class): void
@@ -85,12 +85,12 @@ final class GenerateRoute extends FromService
     private function addBusMethod(ClassType $class): void
     {
         $name = $class->addMethod('bus')->setStatic()->setReturnType('array');
-        $name->setBody('return array_filter(self::VALID, fn (array $route) => $route[\'mode\'] === \'bus\');');
+        $name->setBody('return array_filter(self::VALID, fn (array $line) => $line[\'mode\'] === \'bus\');');
     }
 
     private function addTubeMethod(ClassType $class): void
     {
         $name = $class->addMethod('tube')->setStatic()->setReturnType('array');
-        $name->setBody('return array_filter(self::VALID, fn (array $route) => $route[\'mode\'] === \'tube\');');
+        $name->setBody('return array_filter(self::VALID, fn (array $line) => $line[\'mode\'] === \'tube\');');
     }
 }

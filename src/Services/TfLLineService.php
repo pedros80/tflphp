@@ -52,7 +52,7 @@ final class TfLLineService extends Service implements LineService
 
     public function getArrivalsByLine(array $routes): array
     {
-        $this->validator->isValidRoute($routes);
+        $this->validator->isValidLine($routes);
 
         $this->url[] = $routes;
         $this->url[] = 'Arrivals';
@@ -63,7 +63,6 @@ final class TfLLineService extends Service implements LineService
     public function getArrivalsByLineAndStop(array $routes, string $stopPointId, ?string $direction = null, ?string $destinationStationId = null): array
     {
         $this->validator->isValidLine($routes);
-        $this->validator->isValidNaptan($stopPointId);
 
         $this->url[] = $routes;
         $this->url[] = 'Arrivals';
@@ -75,7 +74,6 @@ final class TfLLineService extends Service implements LineService
         }
 
         if ($destinationStationId) {
-            $this->validator->isValidNaptan($destinationStationId);
             $this->params['destinationStationId'] = $destinationStationId;
         }
 
@@ -209,19 +207,53 @@ final class TfLLineService extends Service implements LineService
         return $this->get();
     }
 
-    public function getLineStatusForModes(array $modes, bool $detail = false, bool $severityLevel = false): array
+    public function getLineStatusForModes(array $modes, bool $detail = false, ?string $severityLevel = null): array
     {
-        throw MethodNotImplemented::fromName('LineService::getLineStatusForModes');
+        $this->validator->isValidLineMode($modes);
+
+        $this->url[] = 'Mode';
+        $this->url[] = $modes;
+        $this->url[] = 'Status';
+
+        if ($detail) {
+            $this->params['detail'] = 'true';
+        }
+
+        if ($severityLevel) {
+            $this->params['severityLevel'] = $severityLevel;
+        }
+
+        return $this->get();
     }
 
     public function getLineStatusById(array $ids, bool $detail = false): array
     {
-        throw MethodNotImplemented::fromName('LineService::getLineStatusById');
+        $this->validator->isValidLine($ids);
+
+        $this->url[] = $ids;
+        $this->url[] = 'Status';
+
+        if ($detail) {
+            $this->params['detail'] = 'true';
+        }
+
+        return $this->get();
     }
 
     public function getTimetableForLineAndStation(string $line, string $fromStopPointId, ?string $toStopPointId=null): array
     {
-        throw MethodNotImplemented::fromName('LineService::getTimetableForLineAndStation');
+        $this->validator->isValidLine($line);
+
+        $this->url[] = $line;
+        $this->url[] = 'Timetable';
+        $this->url[] = $fromStopPointId;
+
+        if ($toStopPointId) {
+            $this->url[] = 'to';
+            $this->url[] = $toStopPointId;
+        }
+
+        return $this->get();
     }
 
     public function search(string $query, ?array $modes = null, ?string $types = null): array

@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Pedros80\TfLphp\Enums;
 
-enum Lines: string
+enum RailLines: string
 {
     case LONDON_CABLE_CAR  = 'london-cable-car';
     case DLR               = 'dlr';

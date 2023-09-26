@@ -11,7 +11,6 @@ final class TfLCrowdingService extends Service implements CrowdingService
 {
     public function getByDayOfWeek(string $naptan, string $dayOfWeek): array
     {
-        $this->validator->isValidNaptan($naptan);
         $this->validator->isValidDayOfTheWeek($dayOfWeek);
 
         $this->url[] = $naptan;
@@ -22,8 +21,6 @@ final class TfLCrowdingService extends Service implements CrowdingService
 
     public function getLiveByNaptan(string $naptan): array
     {
-        $this->validator->isValidNaptan($naptan);
-
         $this->url[] = $naptan;
         $this->url[] = 'Live';
 
@@ -32,8 +29,6 @@ final class TfLCrowdingService extends Service implements CrowdingService
 
     public function getByNaptan(string $naptan): array
     {
-        $this->validator->isValidNaptan($naptan);
-
         $this->url[] = $naptan;
 
         return $this->get();

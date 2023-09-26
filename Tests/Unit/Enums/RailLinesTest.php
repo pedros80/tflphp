@@ -2,14 +2,14 @@
 
 namespace Tests\Unit\Enums;
 
-use Pedros80\TfLphp\Enums\Lines;
+use Pedros80\TfLphp\Enums\RailLines;
 use PHPUnit\Framework\TestCase;
 
-final class LinesTest extends TestCase
+final class RailLinesTest extends TestCase
 {
     public function testToModeReturnsString(): void
     {
-        $line = Lines::from('circle');
+        $line = RailLines::from('circle');
 
         $this->assertEquals('circle', $line->value);
         $this->assertEquals('tube', $line->toMode());

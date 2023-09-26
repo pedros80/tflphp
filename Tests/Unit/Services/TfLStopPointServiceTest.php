@@ -9,7 +9,6 @@ use GuzzleHttp\Psr7\Response;
 use Pedros80\TfLphp\Enums\StopPointModes;
 use Pedros80\TfLphp\Exceptions\InvalidPage;
 use Pedros80\TfLphp\Exceptions\InvalidSmsCode;
-use Pedros80\TfLphp\Exceptions\InvalidStationCode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointMode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointType;
 use Pedros80\TfLphp\Exceptions\MethodNotImplemented;
@@ -22,21 +21,6 @@ use Prophecy\PhpUnit\ProphecyTrait;
 final class TfLStopPointServiceTest extends TestCase
 {
     use ProphecyTrait;
-
-    public function testGetPlacesByIdAndTypesThrowsExceptionForInvalidNaptan(): void
-    {
-        $this->expectException(InvalidStationCode::class);
-        $this->expectExceptionMessage("'InvalidNaptan' is not a valid station code.");
-
-        $client  = $this->prophesize(Client::class);
-        $service = new TfLStopPointService(
-            'api_key',
-            $client->reveal(),
-            new Validator()
-        );
-
-        $service->getPlacesByIdAndTypes('InvalidNaptan');
-    }
 
     public function testGetPlacesByIdAndTypesThrowsExceptionForInvalidTypes(): void
     {
@@ -80,21 +64,6 @@ final class TfLStopPointServiceTest extends TestCase
         $client->get('910GBKRVS/placeTypes?placeTypes=NaptanFerryEntrance&api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
 
         $service->getPlacesByIdAndTypes('910GBKRVS', ['NaptanFerryEntrance']);
-    }
-
-    public function testGetCarParksByIdInvalidNaptanThrowsException(): void
-    {
-        $this->expectException(InvalidStationCode::class);
-        $this->expectExceptionMessage("'InvalidNaptan' is not a valid station code.");
-
-        $client  = $this->prophesize(Client::class);
-        $service = new TfLStopPointService(
-            'api_key',
-            $client->reveal(),
-            new Validator()
-        );
-
-        $service->getCarParksById('InvalidNaptan');
     }
 
     public function testGetCarParksByIdHitsCorrectUrl(): void
@@ -152,21 +121,6 @@ final class TfLStopPointServiceTest extends TestCase
         $client->get('Mode/tube,dlr/Disruption?includeRouteBlockedStops=true&api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
 
         $service->getDisruptedStopPointsByMode([StopPointModes::TUBE->value, StopPointModes::DLR->value], true);
-    }
-
-    public function testGetStopPointsByIdInvalidNaptanThrowsException(): void
-    {
-        $this->expectException(InvalidStationCode::class);
-        $this->expectExceptionMessage("'invalid1' is not a valid station code.");
-
-        $client  = $this->prophesize(Client::class);
-        $service = new TfLStopPointService(
-            'api_key',
-            $client->reveal(),
-            new Validator()
-        );
-
-        $service->getStopPointsById(['invalid1', 'invalid2']);
     }
 
     public function testGetStopPointsByIdHitsCorrectUrl(): void
@@ -253,21 +207,6 @@ final class TfLStopPointServiceTest extends TestCase
         $client->get('Mode/tube,dlr?page=100&api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
 
         $service->getStopPointsByMode([StopPointModes::TUBE->value, StopPointModes::DLR->value], 100);
-    }
-
-    public function testGetTaxiRanksByIdInvalidNaptanThrowsException(): void
-    {
-        $this->expectException(InvalidStationCode::class);
-        $this->expectExceptionMessage("'InvalidNaptan' is not a valid station code.");
-
-        $client  = $this->prophesize(Client::class);
-        $service = new TfLStopPointService(
-            'api_key',
-            $client->reveal(),
-            new Validator()
-        );
-
-        $service->getTaxiRanksById('InvalidNaptan');
     }
 
     public function testGetTaxiRanksByIdHitsCorrectUrl(): void

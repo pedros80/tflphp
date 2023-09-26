@@ -6,14 +6,12 @@ namespace Pedros80\TfLphp\Services;
 
 use Pedros80\TfLphp\Contracts\StopPointService;
 use Pedros80\TfLphp\Exceptions\MethodNotImplemented;
-use Pedros80\TfLphp\Exceptions\MissingRequiredPlaceTypes;
 use Pedros80\TfLphp\Services\Service;
 
 final class TfLStopPointService extends Service implements StopPointService
 {
     public function getPlacesByIdAndTypes(string $id, array $types = []): array
     {
-        $this->validator->isValidNaptan($id);
         $this->validator->hasStopPointTypes($types);
         $this->validator->isValidStopPointType($types);
 
@@ -27,8 +25,6 @@ final class TfLStopPointService extends Service implements StopPointService
 
     public function getCarParksById(string $id): array
     {
-        $this->validator->isValidNaptan($id);
-
         $this->url[] = $id;
         $this->url[] = 'CarParks';
 
@@ -52,8 +48,6 @@ final class TfLStopPointService extends Service implements StopPointService
 
     public function getStopPointsById(array $ids, bool $includeCrowdingData = false): array
     {
-        $this->validator->isValidNaptan($ids);
-
         $this->url[] = $ids;
 
         if ($includeCrowdingData) {
@@ -83,8 +77,6 @@ final class TfLStopPointService extends Service implements StopPointService
 
     public function getTaxiRanksById(string $id): array
     {
-        $this->validator->isValidNaptan($id);
-
         $this->url[] = $id;
         $this->url[] = 'TaxiRanks';
 
@@ -103,8 +95,6 @@ final class TfLStopPointService extends Service implements StopPointService
 
     public function getDisruptedStopPointsById(array $ids, bool $getFamily = false, bool $includeRouteBlockedStops = false, bool $flattenResponse = false): array
     {
-        $this->validator->isValidNaptan($ids);
-
         $this->url[] = $ids;
         $this->url[] = 'Disruption';
 
@@ -140,7 +130,6 @@ final class TfLStopPointService extends Service implements StopPointService
 
     public function getCrowdingDataByIdAndLine(string $id, string $line, string $direction = 'all'): array
     {
-        $this->validator->isValidNaptan($id);
         $this->validator->isValidLine($line);
         $this->validator->isValidDirection($direction);
 
@@ -155,7 +144,6 @@ final class TfLStopPointService extends Service implements StopPointService
 
     public function getReachablePointsFromStopAndLine(string $id, string $line, ?string $serviceTypes = null): array
     {
-        $this->validator->isValidNaptan($id);
         $this->validator->isValidLine($line);
 
         $this->url[] = $id;
@@ -172,7 +160,6 @@ final class TfLStopPointService extends Service implements StopPointService
 
     public function getArrivalAndDepartureById(string $id, array $lines): array
     {
-        $this->validator->isValidNaptan($id);
         $this->validator->isValidLine($lines);
 
         $this->url[] = $id;
@@ -185,8 +172,6 @@ final class TfLStopPointService extends Service implements StopPointService
 
     public function getArrivalsById(string $id): array
     {
-        $this->validator->isValidNaptan($id);
-
         $this->url[] = $id;
         $this->url[] = 'Arrivals';
 
@@ -221,7 +206,6 @@ final class TfLStopPointService extends Service implements StopPointService
     {
         $this->url[] = 'ServiceTypes';
 
-        $this->validator->isValidNaptan($id);
         $this->params['id'] = $id;
 
         if ($lineIds) {
@@ -239,8 +223,6 @@ final class TfLStopPointService extends Service implements StopPointService
 
     public function getDirectionBetweenIds(string $id, string $toStopPointId, ?string $lineId = null): array
     {
-        $this->validator->isValidNaptan([$id, $toStopPointId]);
-
         $this->url[] = $id;
         $this->url[] = 'DirectionTo';
         $this->url[] = $toStopPointId;
@@ -255,8 +237,6 @@ final class TfLStopPointService extends Service implements StopPointService
 
     public function getRouteSectionsById(string $id, array $serviceTypes = []): array
     {
-        $this->validator->isValidNaptan($id);
-
         $this->url[] = $id;
         $this->url[] = 'Route';
 

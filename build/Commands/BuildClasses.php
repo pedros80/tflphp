@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Pedros80\Build\Commands;
 
 use Pedros80\Build\Actions\GenerateJourneyPlannerModes;
+use Pedros80\Build\Actions\GenerateLine;
 use Pedros80\Build\Actions\GenerateLineDisruptionCategories;
 use Pedros80\Build\Actions\GenerateLineModes;
-use Pedros80\Build\Actions\GenerateLines;
 use Pedros80\Build\Actions\GenerateLineServiceTypes;
 use Pedros80\Build\Actions\GeneratePlaceCategories;
 use Pedros80\Build\Actions\GeneratePlaceTypes;
+use Pedros80\Build\Actions\GenerateRailLines;
 use Pedros80\Build\Actions\GenerateRoadDisruptionCategories;
-use Pedros80\Build\Actions\GenerateRoute;
 use Pedros80\Build\Actions\GenerateSeverityCodes;
 use Pedros80\Build\Actions\GenerateStation;
 use Pedros80\Build\Actions\GenerateStopPointInformationCategories;
@@ -41,20 +41,20 @@ final class BuildClasses extends Command
         $this->actions = new ActionFactory($input->getArgument('apiKey'));
 
         $actions = [
-            GenerateRoute::class,
-            GenerateStopPointInformationCategories::class,
-            GenerateStopPointModes::class,
-            GenerateStopPointTypes::class,
             GenerateJourneyPlannerModes::class,
+            GenerateLine::class,
             GenerateLineDisruptionCategories::class,
             GenerateLineModes::class,
             GenerateLineServiceTypes::class,
-            GenerateSeverityCodes::class,
-            GenerateLines::class,
-            GenerateStation::class,
-            GeneratePlaceTypes::class,
             GeneratePlaceCategories::class,
+            GeneratePlaceTypes::class,
+            GenerateRailLines::class,
             GenerateRoadDisruptionCategories::class,
+            GenerateSeverityCodes::class,
+            GenerateStation::class,
+            GenerateStopPointInformationCategories::class,
+            GenerateStopPointModes::class,
+            GenerateStopPointTypes::class,
         ];
 
         foreach ($actions as $class) {

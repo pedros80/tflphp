@@ -9,15 +9,13 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Pedros80\TfLphp\Enums\Directions;
 use Pedros80\TfLphp\Enums\LineModes;
-use Pedros80\TfLphp\Enums\Lines;
+use Pedros80\TfLphp\Enums\RailLines;
 use Pedros80\TfLphp\Enums\TubeDisruptionSeverities;
 use Pedros80\TfLphp\Exceptions\InvalidDateTime;
 use Pedros80\TfLphp\Exceptions\InvalidDirection;
 use Pedros80\TfLphp\Exceptions\InvalidLine;
 use Pedros80\TfLphp\Exceptions\InvalidLineMode;
 use Pedros80\TfLphp\Exceptions\InvalidLineSeverityCode;
-use Pedros80\TfLphp\Exceptions\InvalidRoute;
-use Pedros80\TfLphp\Exceptions\InvalidStationCode;
 use Pedros80\TfLphp\Exceptions\MethodNotImplemented;
 use Pedros80\TfLphp\Services\TfLLineService;
 use Pedros80\TfLphp\Services\Validator;
@@ -64,7 +62,7 @@ final class TfLLineServiceTest extends TestCase
         );
 
         $client->get('elizabeth,bakerloo/Route?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
-        $service->getRoutes([Lines::ELIZABETH->value, Lines::BAKERLOO->value]);
+        $service->getRoutes([RailLines::ELIZABETH->value, RailLines::BAKERLOO->value]);
     }
 
     public function testGetRoutesInvalidLineThrowsException(): void
@@ -120,10 +118,10 @@ final class TfLLineServiceTest extends TestCase
         );
 
         $client->get('bakerloo,elizabeth/Disruption')->shouldBeCalled()->willReturn(new Response(body: '{}'));
-        $service->getDisruptionsForLines([Lines::BAKERLOO->value, Lines::ELIZABETH->value]);
+        $service->getDisruptionsForLines([RailLines::BAKERLOO->value, RailLines::ELIZABETH->value]);
     }
 
-    public function testGetDisruptionsForLinesInvalidRouteThrowsException(): void
+    public function testGetDisruptionsForLinesInvalidLineThrowsException(): void
     {
         $this->expectException(InvalidLine::class);
         $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
@@ -148,13 +146,13 @@ final class TfLLineServiceTest extends TestCase
         );
 
         $client->get('bakerloo,elizabeth/Arrivals?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
-        $service->getArrivalsByLine([Lines::BAKERLOO->value, Lines::ELIZABETH->value]);
+        $service->getArrivalsByLine([RailLines::BAKERLOO->value, RailLines::ELIZABETH->value]);
     }
 
     public function testGetArrivalsByLineInvalidModesThrowsException(): void
     {
-        $this->expectException(InvalidRoute::class);
-        $this->expectExceptionMessage("'InvalidRoute' is not a valid route.");
+        $this->expectException(InvalidLine::class);
+        $this->expectExceptionMessage("'InvalidLine' is not a valid line.");
 
         $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
@@ -163,7 +161,7 @@ final class TfLLineServiceTest extends TestCase
             new Validator()
         );
 
-        $service->getArrivalsByLine(['InvalidRoute']);
+        $service->getArrivalsByLine(['InvalidLine']);
     }
 
     public function testGetArrivalsByLineAndStopInvalidLineThrowsException(): void
@@ -181,21 +179,6 @@ final class TfLLineServiceTest extends TestCase
         $service->getArrivalsByLineAndStop(['InvalidLine'], '910GBKRVS');
     }
 
-    public function testGetArrivalsByLineAndStopInvalidStopPointIdThrowsException(): void
-    {
-        $this->expectException(InvalidStationCode::class);
-        $this->expectExceptionMessage("'InvalidStopId' is not a valid station code.");
-
-        $client  = $this->prophesize(Client::class);
-        $service = new TfLLineService(
-            'api_key',
-            $client->reveal(),
-            new Validator()
-        );
-
-        $service->getArrivalsByLineAndStop([Lines::BAKERLOO->value], 'InvalidStopId');
-    }
-
     public function testGetArrivalsByLineAndStopInvalidDirectionThrowsException(): void
     {
         $this->expectException(InvalidDirection::class);
@@ -208,26 +191,7 @@ final class TfLLineServiceTest extends TestCase
             new Validator()
         );
 
-        $service->getArrivalsByLineAndStop([Lines::BAKERLOO->value], '910GBKRVS', 'InvalidDirection');
-    }
-
-    public function testGetArrivalsByLineAndStopInvalidDestinationStopIdThrowsException(): void
-    {
-        $this->expectException(InvalidStationCode::class);
-        $this->expectExceptionMessage("'InvalidStationId' is not a valid station code.");
-
-        $client  = $this->prophesize(Client::class);
-        $service = new TfLLineService(
-            'api_key',
-            $client->reveal(),
-            new Validator()
-        );
-
-        $service->getArrivalsByLineAndStop(
-            routes: [Lines::BAKERLOO->value],
-            stopPointId: '910GBKRVS',
-            destinationStationId: 'InvalidStationId'
-        );
+        $service->getArrivalsByLineAndStop([RailLines::BAKERLOO->value], '910GBKRVS', 'InvalidDirection');
     }
 
     public function testGetArrivalsByLineAndStopHitsCorrectUrl(): void
@@ -244,7 +208,7 @@ final class TfLLineServiceTest extends TestCase
             ->willReturn(new Response(body: '{}'));
 
         $service->getArrivalsByLineAndStop(
-            routes: [Lines::BAKERLOO->value, Lines::ELIZABETH->value],
+            routes: [RailLines::BAKERLOO->value, RailLines::ELIZABETH->value],
             stopPointId: '910GBKRVS'
         );
     }
@@ -263,7 +227,7 @@ final class TfLLineServiceTest extends TestCase
             ->willReturn(new Response(body: '{}'));
 
         $service->getArrivalsByLineAndStop(
-            routes: [Lines::BAKERLOO->value, Lines::ELIZABETH->value],
+            routes: [RailLines::BAKERLOO->value, RailLines::ELIZABETH->value],
             stopPointId: '910GBKRVS',
             direction: Directions::INBOUND->value
         );
@@ -283,7 +247,7 @@ final class TfLLineServiceTest extends TestCase
             ->willReturn(new Response(body: '{}'));
 
         $service->getArrivalsByLineAndStop(
-            routes: [Lines::BAKERLOO->value, Lines::ELIZABETH->value],
+            routes: [RailLines::BAKERLOO->value, RailLines::ELIZABETH->value],
             stopPointId: '910GBKRVS',
             destinationStationId: '910GWOLWXR'
         );
@@ -314,7 +278,7 @@ final class TfLLineServiceTest extends TestCase
         );
 
         $client->get('circle/StopPoints?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
-        $service->getServingStations(Lines::CIRCLE->value);
+        $service->getServingStations(RailLines::CIRCLE->value);
     }
 
     public function testGetServingStationsTfLOnlyHitsCorrectUrl(): void
@@ -327,7 +291,7 @@ final class TfLLineServiceTest extends TestCase
         );
 
         $client->get('circle/StopPoints?tflOperatedNationalRailStationsOnly=true&api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
-        $service->getServingStations(Lines::CIRCLE->value, true);
+        $service->getServingStations(RailLines::CIRCLE->value, true);
     }
 
     public function testMetaMethodsHitCorrectUrl(): void
@@ -422,7 +386,7 @@ final class TfLLineServiceTest extends TestCase
             new Validator()
         );
 
-        $service->getRoutesForLine(Lines::DISTRICT->value, 'InvalidDirection');
+        $service->getRoutesForLine(RailLines::DISTRICT->value, 'InvalidDirection');
     }
 
     public function testGetRoutesForLineHitsCorrectUtl(): void
@@ -435,7 +399,7 @@ final class TfLLineServiceTest extends TestCase
         );
 
         $client->get('district/Route/Sequence/inbound?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
-        $service->getRoutesForLine(Lines::DISTRICT->value, Directions::INBOUND->value);
+        $service->getRoutesForLine(RailLines::DISTRICT->value, Directions::INBOUND->value);
     }
 
     public function testGetRoutesForLineNightServicesHitsCorrectUtl(): void
@@ -449,7 +413,7 @@ final class TfLLineServiceTest extends TestCase
 
         $client->get('district/Route/Sequence/inbound?serviceTypes=Night&api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
         $service->getRoutesForLine(
-            line: Lines::DISTRICT->value,
+            line: RailLines::DISTRICT->value,
             direction: Directions::INBOUND->value,
             night: true
         );
@@ -466,7 +430,7 @@ final class TfLLineServiceTest extends TestCase
 
         $client->get('district/Route/Sequence/inbound?excludeCrowding=true&api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
         $service->getRoutesForLine(
-            line: Lines::DISTRICT->value,
+            line: RailLines::DISTRICT->value,
             direction: Directions::INBOUND->value,
             excludeCrowding: true
         );
@@ -497,7 +461,7 @@ final class TfLLineServiceTest extends TestCase
         );
 
         $client->get('bakerloo,central?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
-        $service->getLinesById([Lines::BAKERLOO->value, Lines::CENTRAL->value]);
+        $service->getLinesById([RailLines::BAKERLOO->value, RailLines::CENTRAL->value]);
     }
 
     public function testGetLinesByModeInvalidLineThrowsException(): void
@@ -588,7 +552,7 @@ final class TfLLineServiceTest extends TestCase
         );
 
         $service->getLineStatusByPeriod(
-            [Lines::CENTRAL->value],
+            [RailLines::CENTRAL->value],
             'last week',
             date(DateTime::RFC3339)
         );
@@ -607,7 +571,7 @@ final class TfLLineServiceTest extends TestCase
         );
 
         $service->getLineStatusByPeriod(
-            [Lines::CENTRAL->value],
+            [RailLines::CENTRAL->value],
             date(DateTime::RFC3339),
             'last week'
         );
@@ -629,7 +593,7 @@ final class TfLLineServiceTest extends TestCase
             ->shouldBeCalled()
             ->willReturn(new Response(body: '{}'));
 
-        $service->getLineStatusByPeriod([Lines::CIRCLE->value], $from, $to);
+        $service->getLineStatusByPeriod([RailLines::CIRCLE->value], $from, $to);
     }
 
     public function testGetLineStatusByPeriodNoDetailHitsCorrectUrl(): void
@@ -648,7 +612,7 @@ final class TfLLineServiceTest extends TestCase
             ->shouldBeCalled()
             ->willReturn(new Response(body: '{}'));
 
-        $service->getLineStatusByPeriod([Lines::CIRCLE->value], $from, $to, false);
+        $service->getLineStatusByPeriod([RailLines::CIRCLE->value], $from, $to, false);
     }
 
     public function testSearchThrowsNotImplementedException(): void
@@ -666,11 +630,8 @@ final class TfLLineServiceTest extends TestCase
         $service->search('query');
     }
 
-    public function testGetTimetableForLineAndStationThrowsNotImplementedException(): void
+    public function testGetTimetableForLineAndStationHitsCorrectUrl(): void
     {
-        $this->expectException(MethodNotImplemented::class);
-        $this->expectExceptionMessage("'LineService::getTimetableForLineAndStation' method not implemented.");
-
         $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
@@ -678,14 +639,12 @@ final class TfLLineServiceTest extends TestCase
             new Validator()
         );
 
-        $service->getTimetableForLineAndStation('line', 'fromStopPoint');
+        $client->get('bakerloo/Timetable/fromStopPoint?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
+        $service->getTimetableForLineAndStation(RailLines::BAKERLOO->value, 'fromStopPoint');
     }
 
-    public function testGetLineStatusByIdThrowsNotImplementedException(): void
+    public function testGetLineStatusByIdHitsCorrectUrl(): void
     {
-        $this->expectException(MethodNotImplemented::class);
-        $this->expectExceptionMessage("'LineService::getLineStatusById' method not implemented.");
-
         $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
@@ -693,14 +652,12 @@ final class TfLLineServiceTest extends TestCase
             new Validator()
         );
 
-        $service->getLineStatusById(['line']);
+        $client->get('bakerloo/Status?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
+        $service->getLineStatusById([RailLines::BAKERLOO->value]);
     }
 
-    public function testGetLineStatusForModesThrowsNotImplementedException(): void
+    public function testGetLineStatusForModesHitsCorrectUrl(): void
     {
-        $this->expectException(MethodNotImplemented::class);
-        $this->expectExceptionMessage("'LineService::getLineStatusForModes' method not implemented.");
-
         $client  = $this->prophesize(Client::class);
         $service = new TfLLineService(
             'api_key',
@@ -708,6 +665,7 @@ final class TfLLineServiceTest extends TestCase
             new Validator()
         );
 
-        $service->getLineStatusForModes(['mode']);
+        $client->get('Mode/bus/Status?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
+        $service->getLineStatusForModes([LineModes::BUS->value]);
     }
 }

@@ -124,7 +124,7 @@ interface LineService
      *
      * @link https://api-portal.tfl.gov.uk/api-details#api=Line&operation=Line_StatusByModeByPathModesQueryDetailQuerySeverityLevel
      */
-    public function getLineStatusForModes(array $modes, bool $detail=false, bool $severityLevel=false): array;
+    public function getLineStatusForModes(array $modes, bool $detail = false, ?string $severityLevel = null): array;
 
     /**
      * Gets the line status of for given line ids e.g Minor Delays
