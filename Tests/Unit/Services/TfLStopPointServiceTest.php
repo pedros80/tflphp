@@ -7,6 +7,7 @@ namespace Tests\Unit\Services;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Pedros80\TfLphp\Enums\StopPointModes;
+use Pedros80\TfLphp\Enums\StopPointTypes;
 use Pedros80\TfLphp\Exceptions\InvalidPage;
 use Pedros80\TfLphp\Exceptions\InvalidSmsCode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointMode;
@@ -61,9 +62,9 @@ final class TfLStopPointServiceTest extends TestCase
             new Validator()
         );
 
-        $client->get('910GBKRVS/placeTypes?placeTypes=NaptanFerryEntrance&api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
+        $client->get('910GBKRVS/placeTypes?placeTypes=CarPickupSetDownArea%2CNaptanCoachBay&api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
 
-        $service->getPlacesByIdAndTypes('910GBKRVS', ['NaptanFerryEntrance']);
+        $service->getPlacesByIdAndTypes('910GBKRVS', [StopPointTypes::CAR_PICKUP_SET_DOWN_AREA->value, StopPointTypes::NAPTAN_COACH_BAY->value]);
     }
 
     public function testGetCarParksByIdHitsCorrectUrl(): void

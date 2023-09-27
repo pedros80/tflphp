@@ -13,6 +13,7 @@ use Pedros80\Build\Actions\GeneratePlaceCategories;
 use Pedros80\Build\Actions\GeneratePlaceTypes;
 use Pedros80\Build\Actions\GenerateRailLines;
 use Pedros80\Build\Actions\GenerateRoadDisruptionCategories;
+use Pedros80\Build\Actions\GenerateRoadIds;
 use Pedros80\Build\Actions\GenerateSeverityCodes;
 use Pedros80\Build\Actions\GenerateStation;
 use Pedros80\Build\Actions\GenerateStopPointInformationCategories;
@@ -50,6 +51,7 @@ final class BuildClasses extends Command
             GeneratePlaceTypes::class,
             GenerateRailLines::class,
             GenerateRoadDisruptionCategories::class,
+            GenerateRoadIds::class,
             GenerateSeverityCodes::class,
             GenerateStation::class,
             GenerateStopPointInformationCategories::class,

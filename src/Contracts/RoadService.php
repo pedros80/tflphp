@@ -11,7 +11,7 @@ interface RoadService
      *
      * @link https://api-portal.tfl.gov.uk/api-details#api=Road&operation=Road_DisruptionByPathIdsQueryStripContentQuerySeveritiesQueryCategoriesQuery
      */
-    public function getDisruptionsByRoadId(string $ids, bool $stripContent=false, ?array $severities=null, ?array $categories=null, bool $closures=false): array;
+    public function getDisruptionsByRoadId(array $ids, bool $stripContent=false, ?array $severities=null, ?array $categories=null, bool $closures=false): array;
 
     /**
      * Gets a list of active disruptions filtered by disruption Ids.

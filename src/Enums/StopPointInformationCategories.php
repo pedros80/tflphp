@@ -25,13 +25,13 @@ enum StopPointInformationCategories: string
     public function availableKeys(): array
     {
         return match ($this) {
-            self::ACCESSIBILITY        => ['AddtionalInformation', 'LimitedCapacityLift', 'SpecificEntranceRequired', 'TaxiRankOutsideStation', 'AccessViaLift', 'BlueBadgeCarParkSpaces', 'SpecificEntranceInstructions', 'Toilet', 'ToiletNote'],
+            self::ACCESSIBILITY        => ['AccessViaLift', 'AddtionalInformation', 'BlueBadgeCarParkSpaces', 'LimitedCapacityLift', 'SpecificEntranceInstructions', 'SpecificEntranceRequired', 'TaxiRankOutsideStation', 'Toilet', 'ToiletNote'],
             self::ADDRESS              => ['Address', 'PhoneNo'],
-            self::DIRECTION            => ['Towards', 'CompassPoint'],
-            self::FACILITY             => ['Boarding Ramp', 'Lifts', 'Cash Machines', 'Waiting Room', 'Help Points', 'WiFi', 'Boarding Ramps', 'Escalators', 'ASDA Click and Collect', 'Ticket Halls', 'Euro Cash Machines', 'Payphones', 'Bridge', 'Car park', 'Gates', 'Toilets', 'Amazon Lockers', 'Other Facilities', 'Left Luggage', 'Photo Booths'],
+            self::DIRECTION            => ['CompassPoint', 'Towards'],
+            self::FACILITY             => ['ASDA Click and Collect', 'Amazon Lockers', 'Boarding Ramp', 'Boarding Ramps', 'Bridge', 'Car park', 'Cash Machines', 'Escalators', 'Euro Cash Machines', 'Gates', 'Help Points', 'Left Luggage', 'Lifts', 'Other Facilities', 'Payphones', 'Photo Booths', 'Ticket Halls', 'Toilets', 'Waiting Room', 'WiFi'],
             self::GEO                  => ['Zone'],
             self::NEAREST_PLACES       => ['SourceSystemPlaceId'],
-            self::OPENING_TIME         => ['SunFrom', 'MonFriFrom', 'SatFrom', 'SunTo', 'MonFriTo', 'SatTo'],
+            self::OPENING_TIME         => ['MonFriFrom', 'MonFriTo', 'SatFrom', 'SatTo', 'SunFrom', 'SunTo'],
             self::SERVICE_INFO         => ['Night'],
             self::STATION_OWNED_BY_TFL => ['OwnedByTfl'],
             self::VISITOR_CENTRE       => ['Location'],

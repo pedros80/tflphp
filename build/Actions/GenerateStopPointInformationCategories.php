@@ -39,6 +39,7 @@ final class GenerateStopPointInformationCategories extends FromService
 
         $availableKeys->addBody('return match($this) {');
         foreach ($categories as $category) {
+            sort($category['availableKeys']);
             $keys = implode(
                 ', ',
                 array_map(fn (string $key) =>  "'{$key}'", $category['availableKeys'])

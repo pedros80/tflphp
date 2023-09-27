@@ -18,7 +18,7 @@ final class TfLStopPointService extends Service implements StopPointService
         $this->url[] = $id;
         $this->url[] = 'placeTypes';
 
-        $this->params['placeTypes'] = implode(',', $types);
+        $this->params['placeTypes'] = $types;
 
         return $this->get();
     }
@@ -165,7 +165,7 @@ final class TfLStopPointService extends Service implements StopPointService
         $this->url[] = $id;
         $this->url[] = 'ArrivalDepartures';
 
-        $this->params['lineIds'] = implode(',', $lines);
+        $this->params['lineIds'] = $lines;
 
         return $this->get();
     }
@@ -210,12 +210,12 @@ final class TfLStopPointService extends Service implements StopPointService
 
         if ($lineIds) {
             $this->validator->isValidLine($lineIds);
-            $this->params['lineIds'] = implode(',', $lineIds);
+            $this->params['lineIds'] = $lineIds;
         }
 
         if ($modes) {
             $this->validator->isValidStopPointMode($modes);
-            $this->params['modes'] = implode(',', $modes);
+            $this->params['modes'] = $modes;
         }
 
         return $this->get();
@@ -242,7 +242,7 @@ final class TfLStopPointService extends Service implements StopPointService
 
         if ($serviceTypes) {
             $this->validator->isValidServiceType($serviceTypes);
-            $this->params['serviceTypes'] = implode(',', $serviceTypes);
+            $this->params['serviceTypes'] = $serviceTypes;
         }
 
         return $this->get();

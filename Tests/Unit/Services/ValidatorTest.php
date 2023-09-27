@@ -18,9 +18,9 @@ final class ValidatorTest extends TestCase
         $this->validator = new Validator();
     }
 
-    public function testIsValidLatLngReturnsTrueOnValid(): void
+    public function testIsValidLatLngReturnsNullOnValid(): void
     {
-        $this->assertTrue($this->validator->isValidLatLng('34', '34'));
+        $this->assertNull($this->validator->isValidLatLng('34', '34'));
     }
 
     public function testIsValidLatLngInvalidLatThrowsException(): void

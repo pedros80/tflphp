@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests\Unit;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Response;
+use Pedros80\TfLphp\Exceptions\MethodNotImplemented;
 use Pedros80\TfLphp\Services\TfLAccidentStatsService;
 use Pedros80\TfLphp\Services\Validator;
 use PHPUnit\Framework\TestCase;
@@ -15,8 +15,11 @@ final class TfLAccidentStatsServiceTest extends TestCase
 {
     use ProphecyTrait;
 
-    public function testGetFeedReturnsKnownType(): void
+    public function testGetDetailsThrowsNotImplementedException(): void
     {
+        $this->expectException(MethodNotImplemented::class);
+        $this->expectExceptionMessage("'AccidentStatsService::getDetails()' method not implemented.");
+
         $client  = $this->prophesize(Client::class);
         $service = new TfLAccidentStatsService(
             'api_key',
@@ -24,7 +27,6 @@ final class TfLAccidentStatsServiceTest extends TestCase
             new Validator()
         );
 
-        $client->get('2012?api_key=api_key')->shouldBeCalled()->willReturn(new Response(body: '{}'));
         $service->getDetails(2012);
     }
 }

@@ -7,6 +7,9 @@ namespace Pedros80\TfLphp\Services;
 use Pedros80\TfLphp\Enums\Directions;
 use Pedros80\TfLphp\Enums\LineModes;
 use Pedros80\TfLphp\Enums\PlaceTypes;
+use Pedros80\TfLphp\Enums\RoadDisruptionCategories;
+use Pedros80\TfLphp\Enums\RoadDisruptionSeverities;
+use Pedros80\TfLphp\Enums\RoadIds;
 use Pedros80\TfLphp\Enums\ServiceTypes;
 use Pedros80\TfLphp\Enums\StopPointModes;
 use Pedros80\TfLphp\Enums\StopPointTypes;
@@ -22,13 +25,16 @@ use Pedros80\TfLphp\Exceptions\InvalidLineSeverityCode;
 use Pedros80\TfLphp\Exceptions\InvalidLongitude;
 use Pedros80\TfLphp\Exceptions\InvalidPage;
 use Pedros80\TfLphp\Exceptions\InvalidPlaceType;
+use Pedros80\TfLphp\Exceptions\InvalidRoadDisruption;
+use Pedros80\TfLphp\Exceptions\InvalidRoadDisruptionCategory;
+use Pedros80\TfLphp\Exceptions\InvalidRoadDisruptionSeverity;
+use Pedros80\TfLphp\Exceptions\InvalidRoadId;
 use Pedros80\TfLphp\Exceptions\InvalidServiceType;
 use Pedros80\TfLphp\Exceptions\InvalidSmsCode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointMode;
 use Pedros80\TfLphp\Exceptions\InvalidStopPointType;
 use Pedros80\TfLphp\Exceptions\MissingRequiredPlaceTypes;
 use Pedros80\TfLphp\Params\Line;
-use Pedros80\TfLphp\Params\Station;
 use Safe\DateTime;
 use Safe\Exceptions\DatetimeException;
 use ValueError;
@@ -37,7 +43,7 @@ use function Safe\preg_match;
 
 final class Validator
 {
-    public function isValidLatLng(string $lat, string $lng): bool
+    public function isValidLatLng(string $lat, string $lng): void
     {
         $lat = floatval($lat);
         $lng = floatval($lng);
@@ -49,22 +55,18 @@ final class Validator
         if ($lng < -180 || $lng > 180) {
             throw InvalidLongitude::fromString((string) $lng);
         }
-
-        return true;
     }
 
-    public function isValidLine(string|array $lines): bool
+    public function isValidLine(string|array $lines): void
     {
         $lines = $this->ensureArray($lines);
 
         foreach ($lines as $line) {
             new Line($line);
         }
-
-        return true;
     }
 
-    public function isValidPlaceType(string|array $placeTypes): bool
+    public function isValidPlaceType(string|array $placeTypes): void
     {
         $placeTypes = $this->ensureArray($placeTypes);
 
@@ -75,11 +77,9 @@ final class Validator
                 throw InvalidPlaceType::fromString($placeType);
             }
         }
-
-        return true;
     }
 
-    public function isValidBikePointId(string|array $bikePointIds): bool
+    public function isValidBikePointId(string|array $bikePointIds): void
     {
         $bikePointIds = $this->ensureArray($bikePointIds);
 
@@ -88,11 +88,9 @@ final class Validator
                 throw InvalidBikePointId::fromString($bikePointId);
             }
         }
-
-        return true;
     }
 
-    public function isValidCarParkId(string|array $carParkIds): bool
+    public function isValidCarParkId(string|array $carParkIds): void
     {
         $carParkIds = $this->ensureArray($carParkIds);
 
@@ -101,11 +99,9 @@ final class Validator
                 throw InvalidCarParkId::fromString($carParkId);
             }
         }
-
-        return true;
     }
 
-    public function isValidDayOfTheWeek(string|array $days): bool
+    public function isValidDayOfTheWeek(string|array $days): void
     {
         $days = $this->ensureArray($days);
 
@@ -114,11 +110,9 @@ final class Validator
                 throw InvalidDayOfWeek::fromString($day);
             }
         }
-
-        return true;
     }
 
-    public function isValidServiceType(string|array $serviceTypes): bool
+    public function isValidServiceType(string|array $serviceTypes): void
     {
         $serviceTypes = $this->ensureArray($serviceTypes);
 
@@ -129,20 +123,42 @@ final class Validator
                 throw InvalidServiceType::fromString($serviceType);
             }
         }
-
-        return true;
     }
 
-    public function isValidLineSeverity(int $severity): bool
+    public function isValidLineSeverity(int $severity): void
     {
         if ($severity < 0 || $severity > 20) {
             throw InvalidLineSeverityCode::fromInt($severity);
         }
-
-        return true;
     }
 
-    public function isValidDirection(string|array $directions): bool
+    public function isValidRoadDisruptionSeverity(int|array $severities): void
+    {
+        $severities = $this->ensureArray($severities);
+
+        foreach ($severities as $severity) {
+            try {
+                RoadDisruptionSeverities::from($severity);
+            } catch (ValueError) {
+                throw InvalidRoadDisruptionSeverity::fromInt($severity);
+            }
+        }
+    }
+
+    public function isValidRoadDisruptionCategories(string|array $categories): void
+    {
+        $categories = $this->ensureArray($categories);
+
+        foreach ($categories as $category) {
+            try {
+                RoadDisruptionCategories::from($category);
+            } catch (ValueError) {
+                throw InvalidRoadDisruptionCategory::fromString($category);
+            }
+        }
+    }
+
+    public function isValidDirection(string|array $directions): void
     {
         $directions = $this->ensureArray($directions);
 
@@ -153,11 +169,9 @@ final class Validator
                 throw InvalidDirection::fromString($direction);
             }
         }
-
-        return true;
     }
 
-    public function isValidLineMode(string|array $modes): bool
+    public function isValidLineMode(string|array $modes): void
     {
         $modes = $this->ensureArray($modes);
 
@@ -168,11 +182,9 @@ final class Validator
                 throw InvalidLineMode::fromString($mode);
             }
         }
-
-        return true;
     }
 
-    public function isValidStopPointMode(string|array $modes): bool
+    public function isValidStopPointMode(string|array $modes): void
     {
         $modes = $this->ensureArray($modes);
 
@@ -183,29 +195,23 @@ final class Validator
                 throw InvalidStopPointMode::fromString($mode);
             }
         }
-
-        return true;
     }
 
-    public function hasStopPointTypes(array $types): bool
+    public function hasStopPointTypes(array $types): void
     {
         if (!count($types)) {
             throw MissingRequiredPlaceTypes::new();
         }
-
-        return true;
     }
 
-    public function isValidPage(int $page): bool
+    public function isValidPage(int $page): void
     {
         if ($page < 1) {
             throw InvalidPage::fromInt($page);
         }
-
-        return true;
     }
 
-    public function isValidStopPointType(string|array $types): bool
+    public function isValidStopPointType(string|array $types): void
     {
         $types = $this->ensureArray($types);
 
@@ -216,11 +222,35 @@ final class Validator
                 throw InvalidStopPointType::fromString($type);
             }
         }
-
-        return true;
     }
 
-    public function isValidSmsCode(string|array $codes): bool
+    public function isValidRoadDisruption(string|array $codes): void
+    {
+        $codes = $this->ensureArray($codes);
+
+        foreach ($codes as $code) {
+            try {
+                RoadDisruptionCategories::from($code);
+            } catch (ValueError) {
+                throw InvalidRoadDisruption::fromString($code);
+            }
+        }
+    }
+
+    public function isValidRoadId(string|array $roads): void
+    {
+        $roads = $this->ensureArray($roads);
+
+        foreach ($roads as $road) {
+            try {
+                RoadIds::from($road);
+            } catch (ValueError) {
+                throw InvalidRoadId::fromString($road);
+            }
+        }
+    }
+
+    public function isValidSmsCode(string|array $codes): void
     {
         $codes = $this->ensureArray($codes);
 
@@ -229,11 +259,9 @@ final class Validator
                 throw InvalidSmsCode::fromString($code);
             }
         }
-
-        return true;
     }
 
-    public function isValidRFC3339Date(string|array $dates): bool
+    public function isValidRFC3339Date(string|array $dates): void
     {
         $dates = $this->ensureArray($dates);
 
@@ -244,21 +272,19 @@ final class Validator
                 throw InvalidDateTime::fromString($date);
             }
         }
-
-        return true;
     }
 
-    public function isValidCount(int $count): bool
+    public function isValidCount(int $count): void
     {
         if ($count < -1) {
             throw InvalidCount::fromInt($count);
         }
-
-        return true;
     }
 
-    private function ensureArray(string|array $value): array
+    private function ensureArray(string|array|int $value): array
     {
-        return is_array($value) ? $value : [$value];
+        $value = is_array($value) ? $value : [$value];
+
+        return array_filter($value);
     }
 }

@@ -54,6 +54,14 @@ abstract class Service
             )
         );
 
+        if ($this->params) {
+            foreach ($this->params as $param => $value) {
+                if (is_array($value)) {
+                    $this->params[$param] = implode(',', $value);
+                }
+            }
+        }
+
         $query = $this->params ? http_build_query($this->params) : '';
 
         if ($query) {

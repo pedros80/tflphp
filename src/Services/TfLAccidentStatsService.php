@@ -12,8 +12,8 @@ final class TfLAccidentStatsService extends Service implements AccidentStatsServ
 {
     public function getDetails(int $year): array
     {
-        // something odd going on
-        // throw MethodNotImplemented::fromName('AccidentStatsService::getDetails()');
+        // api throwing 404 for this endpoint ¯\_(ツ)_/¯
+        throw MethodNotImplemented::fromName('AccidentStatsService::getDetails()');
 
         $this->url[] = $year;
 

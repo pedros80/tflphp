@@ -49,7 +49,7 @@ final class TfLPlaceService extends Service implements PlaceService
         $this->params['name'] = $name;
         if ($types) {
             $this->validator->isValidPlaceType($types);
-            $this->params['types'] = implode(',', $types);
+            $this->params['types'] = $types;
         }
 
         return $this->get();
