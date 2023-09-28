@@ -22,6 +22,9 @@ use Pedros80\TfLphp\Services\Validator;
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
 
+use function Safe\date;
+use function Safe\strtotime;
+
 final class TfLLineServiceTest extends TestCase
 {
     use ProphecyTrait;

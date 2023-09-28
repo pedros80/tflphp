@@ -3,6 +3,12 @@
 
 use Pedros80\Build\Commands\BuildClasses;
 use Pedros80\Build\Commands\GetStationData;
+use Pedros80\TfLphp\Commands\AccidentStatsGetDetails;
+use Pedros80\TfLphp\Commands\AirQualityGetFeed;
+use Pedros80\TfLphp\Commands\BikePointsGetAll;
+use Pedros80\TfLphp\Commands\BikePointsGetById;
+use Pedros80\TfLphp\Commands\BikePointsSearch;
+use Pedros80\TfLphp\Commands\LiftDisruptionGetDisruptions;
 use Symfony\Component\Console\Application;
 
 require __DIR__ . '/vendor/autoload.php';
@@ -11,5 +17,12 @@ $application = new Application();
 
 $application->add(new GetStationData());
 $application->add(new BuildClasses());
+
+$application->add(new AccidentStatsGetDetails());
+$application->add(new AirQualityGetFeed());
+$application->add(new BikePointsGetAll());
+$application->add(new BikePointsGetById());
+$application->add(new BikePointsSearch());
+$application->add(new LiftDisruptionGetDisruptions());
 
 $application->run();
