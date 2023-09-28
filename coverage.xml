@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1695855302">
-  <project timestamp="1695855302">
+<coverage generated="1695879609">
+  <project timestamp="1695879609">
     <file name="/home/runner/work/tflphp/tflphp/src/Contracts/AccidentStatsService.php">
       <metrics loc="16" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
@@ -516,7 +516,7 @@
       </class>
       <line num="13" type="method" name="getDetails" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="16" type="stmt" count="1"/>
-      <metrics loc="23" ncloc="22" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+      <metrics loc="23" ncloc="20" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Services/TfLAirQualityService.php">
       <class name="Pedros80\TfLphp\Services\TfLAirQualityService" namespace="global">
@@ -1009,12 +1009,12 @@
       <class name="Pedros80\TfLphp\Services\Validator" namespace="global">
         <metrics complexity="63" methods="22" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="90" coveredstatements="65" elements="112" coveredelements="82"/>
       </class>
-      <line num="46" type="method" name="isValidLatLng" visibility="public" complexity="5" crap="5" count="3"/>
-      <line num="48" type="stmt" count="3"/>
-      <line num="49" type="stmt" count="3"/>
-      <line num="51" type="stmt" count="3"/>
+      <line num="46" type="method" name="isValidLatLng" visibility="public" complexity="5" crap="5" count="2"/>
+      <line num="48" type="stmt" count="2"/>
+      <line num="49" type="stmt" count="2"/>
+      <line num="51" type="stmt" count="2"/>
       <line num="52" type="stmt" count="1"/>
-      <line num="55" type="stmt" count="2"/>
+      <line num="55" type="stmt" count="1"/>
       <line num="56" type="stmt" count="1"/>
       <line num="60" type="method" name="isValidLine" visibility="public" complexity="2" crap="2" count="28"/>
       <line num="62" type="stmt" count="28"/>
@@ -1123,6 +1123,6 @@
       <line num="288" type="stmt" count="63"/>
       <metrics loc="291" ncloc="291" classes="1" methods="22" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="90" coveredstatements="65" elements="112" coveredelements="82"/>
     </file>
-    <metrics files="82" loc="4870" ncloc="4360" classes="45" methods="164" coveredmethods="113" conditionals="0" coveredconditionals="0" statements="577" coveredstatements="401" elements="741" coveredelements="514"/>
+    <metrics files="82" loc="4870" ncloc="4358" classes="45" methods="164" coveredmethods="113" conditionals="0" coveredconditionals="0" statements="577" coveredstatements="401" elements="741" coveredelements="514"/>
   </project>
 </coverage>
