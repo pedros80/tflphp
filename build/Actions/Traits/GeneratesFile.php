@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pedros80\Build\Actions\Traits;
+namespace Pedros80\TfLphp\Build\Actions\Traits;
 
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\EnumType;

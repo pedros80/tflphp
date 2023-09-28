@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Pedros80\Build\Actions\Abstractions;
+namespace Pedros80\TfLphp\Build\Actions\Abstractions;
 
-use Pedros80\Build\Actions\Contracts\Action;
-use Pedros80\Build\Actions\Traits\GeneratesFile;
-use Pedros80\Build\CodeGen\FileWriter;
+use Pedros80\TfLphp\Build\Actions\Contracts\Action;
+use Pedros80\TfLphp\Build\Actions\Traits\GeneratesFile;
+use Pedros80\TfLphp\Build\CodeGen\FileWriter;
 use Pedros80\TfLphp\Factories\ServiceFactory;
 use Pedros80\TfLphp\Services\Service;
 

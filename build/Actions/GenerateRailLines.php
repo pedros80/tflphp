@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Pedros80\Build\Actions;
+namespace Pedros80\TfLphp\Build\Actions;
 
 use Nette\PhpGenerator\EnumType;
-use Pedros80\Build\Actions\Abstractions\FromDataFile;
+use Pedros80\TfLphp\Build\Actions\Abstractions\FromDataFile;
 
 final class GenerateRailLines extends FromDataFile
 {

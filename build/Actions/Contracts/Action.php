@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pedros80\Build\Actions\Contracts;
+namespace Pedros80\TfLphp\Build\Actions\Contracts;
 
 interface Action
 {

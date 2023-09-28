@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Pedros80\Build\Actions;
+namespace Pedros80\TfLphp\Build\Actions;
 
 use GuzzleHttp\Client;
 use League\Flysystem\Filesystem;
-use Pedros80\Build\Actions\Contracts\Action;
+use Pedros80\TfLphp\Build\Actions\Contracts\Action;
 
 final class GetStationDataFile implements Action
 {

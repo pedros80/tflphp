@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pedros80\Build\CodeGen;
+namespace Pedros80\TfLphp\Build\CodeGen;
 
 use Nette\PhpGenerator\Printer as BasePrinter;
 

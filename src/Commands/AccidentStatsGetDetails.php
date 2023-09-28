@@ -18,7 +18,6 @@ final class AccidentStatsGetDetails extends Command
 
     private ServiceFactory $factory;
 
-
     public function configure(): void
     {
         $this->addArgument('apiKey', InputArgument::REQUIRED, 'Your Api Key');

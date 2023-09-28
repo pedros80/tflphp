@@ -17,7 +17,7 @@
     "autoload": {
         "psr-4": {
             "Pedros80\\TfLphp\\": "src",
-            "Pedros80\\Build\\": "build"
+            "Pedros80\\TfLphp\\Build\\": "build"
         }
     },
     "autoload-dev": {

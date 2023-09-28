@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Pedros80\Build\Actions;
+namespace Pedros80\TfLphp\Build\Actions;
 
 use Nette\PhpGenerator\ClassType;
-use Pedros80\Build\Actions\Abstractions\FromService;
+use Pedros80\TfLphp\Build\Actions\Abstractions\FromService;
 use Pedros80\TfLphp\Contracts\LineService;
 use Pedros80\TfLphp\Exceptions\InvalidLine;
 use Pedros80\TfLphp\Factories\ServiceFactory;

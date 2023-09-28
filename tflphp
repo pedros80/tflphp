@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use Pedros80\Build\Commands\BuildClasses;
-use Pedros80\Build\Commands\GetStationData;
+use Pedros80\TfLphp\Build\Commands\BuildClasses;
+use Pedros80\TfLphp\Build\Commands\GetStationData;
 use Pedros80\TfLphp\Commands\AccidentStatsGetDetails;
 use Pedros80\TfLphp\Commands\AirQualityGetFeed;
 use Pedros80\TfLphp\Commands\BikePointsGetAll;

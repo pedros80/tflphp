@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Pedros80\Build\Actions;
+namespace Pedros80\TfLphp\Build\Actions;
 
-use Pedros80\Build\Actions\Abstractions\FromService;
+use Pedros80\TfLphp\Build\Actions\Abstractions\FromService;
 use Pedros80\TfLphp\Contracts\JourneyService;
 use Pedros80\TfLphp\Factories\ServiceFactory;
 
