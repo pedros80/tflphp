@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1695930925">
-  <project timestamp="1695930925">
+<coverage generated="1717281155">
+  <project timestamp="1717281155">
     <file name="/home/runner/work/tflphp/tflphp/src/Contracts/AccidentStatsService.php">
       <metrics loc="16" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
@@ -77,7 +77,7 @@
       <metrics loc="36" ncloc="32" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Enums/PlaceCategories.php">
-      <metrics loc="35" ncloc="31" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="36" ncloc="32" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Enums/PlaceTypes.php">
       <metrics loc="46" ncloc="42" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -447,20 +447,20 @@
       <class name="Pedros80\TfLphp\Params\Line" namespace="global">
         <metrics complexity="7" methods="6" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="2" elements="13" coveredelements="3"/>
       </class>
-      <line num="741" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="28"/>
-      <line num="744" type="stmt" count="28"/>
-      <line num="745" type="stmt" count="8"/>
-      <line num="749" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="751" type="stmt" count="0"/>
-      <line num="754" type="method" name="name" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="756" type="stmt" count="0"/>
-      <line num="759" type="method" name="mode" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="761" type="stmt" count="0"/>
-      <line num="764" type="method" name="bus" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="766" type="stmt" count="0"/>
-      <line num="769" type="method" name="tube" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="771" type="stmt" count="0"/>
-      <metrics loc="774" ncloc="770" classes="1" methods="6" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="2" elements="13" coveredelements="3"/>
+      <line num="743" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="28"/>
+      <line num="746" type="stmt" count="28"/>
+      <line num="747" type="stmt" count="8"/>
+      <line num="751" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="753" type="stmt" count="0"/>
+      <line num="756" type="method" name="name" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="758" type="stmt" count="0"/>
+      <line num="761" type="method" name="mode" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="763" type="stmt" count="0"/>
+      <line num="766" type="method" name="bus" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="768" type="stmt" count="0"/>
+      <line num="771" type="method" name="tube" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="773" type="stmt" count="0"/>
+      <metrics loc="776" ncloc="772" classes="1" methods="6" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="2" elements="13" coveredelements="3"/>
     </file>
     <file name="/home/runner/work/tflphp/tflphp/src/Params/Station.php">
       <class name="Pedros80\TfLphp\Params\Station" namespace="global">
@@ -1123,6 +1123,6 @@
       <line num="288" type="stmt" count="63"/>
       <metrics loc="291" ncloc="291" classes="1" methods="22" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="90" coveredstatements="65" elements="112" coveredelements="82"/>
     </file>
-    <metrics files="82" loc="4870" ncloc="4358" classes="45" methods="164" coveredmethods="113" conditionals="0" coveredconditionals="0" statements="577" coveredstatements="401" elements="741" coveredelements="514"/>
+    <metrics files="82" loc="4873" ncloc="4361" classes="45" methods="164" coveredmethods="113" conditionals="0" coveredconditionals="0" statements="577" coveredstatements="401" elements="741" coveredelements="514"/>
   </project>
 </coverage>
