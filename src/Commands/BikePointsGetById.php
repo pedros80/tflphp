@@ -20,6 +20,11 @@ final class BikePointsGetById extends Command
 
     private ServiceFactory $factory;
 
+    public function __construct()
+    {
+        parent::__construct('bikePoints:getById');
+    }
+
     public function configure(): void
     {
         $this->addArgument('apiKey', InputArgument::REQUIRED, 'Your Api Key');

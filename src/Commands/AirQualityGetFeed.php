@@ -20,6 +20,11 @@ final class AirQualityGetFeed extends Command
 
     private ServiceFactory $factory;
 
+    public function __construct()
+    {
+        parent::__construct('airQuality:getFeed');
+    }
+
     public function configure(): void
     {
         $this->addArgument('apiKey', InputArgument::REQUIRED, 'Your Api Key');

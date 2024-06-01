@@ -11,12 +11,12 @@ namespace Pedros80\TfLphp\Enums;
 
 enum RoadDisruptionCategories: string
 {
-    case HAZARDS                   = 'Hazard(s)';
-    case INFRASTRUCTURE_ISSUE      = 'Infrastructure Issue';
+    case HAZARDS = 'Hazard(s)';
+    case INFRASTRUCTURE_ISSUE = 'Infrastructure Issue';
     case SPECIALAND_PLANNED_EVENTS = 'Special and Planned Events';
-    case TRAFFIC_INCIDENTS         = 'Traffic Incidents';
-    case TRAFFIC_VOLUME            = 'Traffic Volume';
-    case WORKS                     = 'Works';
-    case MODERNISATION             = 'modernisation';
-    case CYCLESUPERHIGHWAY         = 'cyclesuperhighway';
+    case TRAFFIC_INCIDENTS = 'Traffic Incidents';
+    case TRAFFIC_VOLUME = 'Traffic Volume';
+    case WORKS = 'Works';
+    case MODERNISATION = 'modernisation';
+    case CYCLESUPERHIGHWAY = 'cyclesuperhighway';
 }

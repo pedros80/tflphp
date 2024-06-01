@@ -15,6 +15,11 @@ final class GetStationData extends Command
     protected static $defaultName        = 'build:getStationData';
     protected static $defaultDescription = 'Download Zip of current, detailed Station Data';
 
+    public function __construct()
+    {
+        parent::__construct('build:getStationData');
+    }
+
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         $actions = new ActionFactory();

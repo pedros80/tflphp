@@ -32,6 +32,11 @@ final class BuildClasses extends Command
 
     private ActionFactory $actions;
 
+    public function __construct()
+    {
+        parent::__construct('build:classes');
+    }
+
     public function configure(): void
     {
         $this->addArgument('apiKey', InputArgument::REQUIRED, 'Your Api Key');

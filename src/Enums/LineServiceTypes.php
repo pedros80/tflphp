@@ -12,5 +12,5 @@ namespace Pedros80\TfLphp\Enums;
 enum LineServiceTypes: string
 {
     case REGULAR = 'Regular';
-    case NIGHT   = 'Night';
+    case NIGHT = 'Night';
 }

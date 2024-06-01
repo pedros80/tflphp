@@ -18,6 +18,11 @@ final class AccidentStatsGetDetails extends Command
 
     private ServiceFactory $factory;
 
+    public function __construct()
+    {
+        parent::__construct('accidentStats:getDetails');
+    }
+
     public function configure(): void
     {
         $this->addArgument('apiKey', InputArgument::REQUIRED, 'Your Api Key');

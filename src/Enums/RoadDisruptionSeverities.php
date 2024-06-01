@@ -11,11 +11,11 @@ namespace Pedros80\TfLphp\Enums;
 
 enum RoadDisruptionSeverities: int
 {
-    case NO_ISSUES             = 0;
-    case CLOSURE               = 5;
-    case SEVERE                = 6;
-    case SERIOUS               = 7;
-    case MODERATE              = 8;
-    case MINIMAL               = 9;
+    case NO_ISSUES = 0;
+    case CLOSURE = 5;
+    case SEVERE = 6;
+    case SERIOUS = 7;
+    case MODERATE = 8;
+    case MINIMAL = 9;
     case NO_EXCEPTIONAL_DELAYS = 10;
 }

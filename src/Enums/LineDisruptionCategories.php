@@ -11,11 +11,11 @@ namespace Pedros80\TfLphp\Enums;
 
 enum LineDisruptionCategories: string
 {
-    case UNDEFINED    = 'Undefined';
-    case REAL_TIME    = 'RealTime';
+    case UNDEFINED = 'Undefined';
+    case REAL_TIME = 'RealTime';
     case PLANNED_WORK = 'PlannedWork';
-    case INFORMATION  = 'Information';
-    case EVENT        = 'Event';
-    case CROWDING     = 'Crowding';
+    case INFORMATION = 'Information';
+    case EVENT = 'Event';
+    case CROWDING = 'Crowding';
     case STATUS_ALERT = 'StatusAlert';
 }
