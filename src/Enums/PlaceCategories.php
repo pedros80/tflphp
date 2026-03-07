@@ -11,25 +11,25 @@ namespace Pedros80\TfLphp\Enums;
 
 enum PlaceCategories: string
 {
-    case ACCESS_POINT = 'AccessPoint';
-    case ADDRESS = 'Address';
-    case CAMERA = 'camera';
-    case CAMERA_VIEW = 'cameraView';
-    case CARGO_DESCRIPTION = 'CargoDescription';
-    case CONTACT = 'Contact';
-    case COUNTER = 'Counter';
-    case DESCRIPTION = 'Description';
+    case ACCESS_POINT               = 'AccessPoint';
+    case ADDRESS                    = 'Address';
+    case CAMERA                     = 'camera';
+    case CAMERA_VIEW                = 'cameraView';
+    case CARGO_DESCRIPTION          = 'CargoDescription';
+    case CONTACT                    = 'Contact';
+    case COUNTER                    = 'Counter';
+    case DESCRIPTION                = 'Description';
     case ELECTRICAL_CHARACTERISTICS = 'ElectricalCharacteristics';
-    case GEO = 'Geo';
-    case IDENTIFIER = 'Identifier';
-    case LOAD = 'Load';
-    case META = 'Meta';
-    case PAYLOAD = 'payload';
-    case PAYMENTS = 'Payments';
-    case PAYMENTS_CASH = 'Payments - Cash';
-    case PAYMENTS_CASHLESS = 'Payments - Cashless';
-    case PAYMENTS_SEASONTICKETS = 'Payments - Season tickets';
-    case RESOURCE = 'Resource';
-    case TIME = 'Time';
-    case TYPE = 'Type';
+    case GEO                        = 'Geo';
+    case IDENTIFIER                 = 'Identifier';
+    case LOAD                       = 'Load';
+    case META                       = 'Meta';
+    case PAYLOAD                    = 'payload';
+    case PAYMENTS                   = 'Payments';
+    case PAYMENTS_CASH              = 'Payments - Cash';
+    case PAYMENTS_CASHLESS          = 'Payments - Cashless';
+    case PAYMENTS_SEASONTICKETS     = 'Payments - Season tickets';
+    case RESOURCE                   = 'Resource';
+    case TIME                       = 'Time';
+    case TYPE                       = 'Type';
 }
