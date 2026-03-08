@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Pedros80\TfLphp\Build\Actions;
 
 use Pedros80\TfLphp\Build\Actions\Abstractions\FromService;
-use Pedros80\TfLphp\Contracts\LineService;
-use Pedros80\TfLphp\Factories\ServiceFactory;
 
 final class GenerateSeverityCodes extends FromService
 {
@@ -36,8 +34,7 @@ final class GenerateSeverityCodes extends FromService
 
     private function getSeveritiesByType(): array
     {
-        /** @var LineService $service */
-        $service = $this->getService(ServiceFactory::LINE);
+        $service = $this->getLineService();
 
         return array_reduce(
             $service->getSeverityCodes(),

@@ -6,8 +6,6 @@ namespace Pedros80\TfLphp\Build\Actions;
 
 use Nette\PhpGenerator\EnumType;
 use Pedros80\TfLphp\Build\Actions\Abstractions\FromService;
-use Pedros80\TfLphp\Contracts\StopPointService;
-use Pedros80\TfLphp\Factories\ServiceFactory;
 
 final class GenerateStopPointInformationCategories extends FromService
 {
@@ -15,8 +13,7 @@ final class GenerateStopPointInformationCategories extends FromService
 
     public function execute(): void
     {
-        /** @var StopPointService $service */
-        $service = $this->getService(ServiceFactory::STOP_POINT);
+        $service = $this->getStopPointService();
 
         $categories = $service->getInformationCategories();
 
@@ -24,8 +21,8 @@ final class GenerateStopPointInformationCategories extends FromService
             self::ENUM_NAME,
             array_map(
                 fn (array $category) => $category['category'],
-                $categories
-            )
+                $categories,
+            ),
         );
 
         $this->addAvailableKeys($enum, $categories);

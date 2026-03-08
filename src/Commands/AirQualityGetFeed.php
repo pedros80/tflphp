@@ -15,8 +15,8 @@ use function Safe\json_encode;
 
 final class AirQualityGetFeed extends Command
 {
-    protected static $defaultName        = 'airQuality:getFeed';
-    protected static $defaultDescription = 'Get Air Quality Feed';
+    protected static string $defaultName        = 'airQuality:getFeed';
+    protected static string $defaultDescription = 'Get Air Quality Feed';
 
     private ServiceFactory $factory;
 

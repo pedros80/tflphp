@@ -15,8 +15,8 @@ use function Safe\json_encode;
 
 final class BikePointsGetById extends Command
 {
-    protected static $defaultName        = 'bikePoints:getById';
-    protected static $defaultDescription = 'Get A Specified Bike Point';
+    protected static string $defaultName        = 'bikePoints:getById';
+    protected static string $defaultDescription = 'Get A Specified Bike Point';
 
     private ServiceFactory $factory;
 

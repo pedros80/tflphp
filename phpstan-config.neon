@@ -8,4 +8,5 @@ parameters:
     - src
     - build
     - Tests
-  checkMissingIterableValueType: false
+  ignoreErrors:
+    - identifier: missingType.iterableValue

@@ -15,8 +15,8 @@ use function Safe\json_encode;
 
 final class LiftDisruptionGetDisruptions extends Command
 {
-    protected static $defaultName        = 'liftDisruption:getDisruption';
-    protected static $defaultDescription = 'Get Current Lift Disruptions';
+    protected static string $defaultName        = 'liftDisruption:getDisruption';
+    protected static string $defaultDescription = 'Get Current Lift Disruptions';
 
     private ServiceFactory $factory;
 

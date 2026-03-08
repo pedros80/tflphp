@@ -138,7 +138,7 @@ interface StopPointService
      *
      * @link https://api-portal.tfl.gov.uk/api-details#api=StopPoint&operation=StopPoint_DirectionByPathIdPathToStopPointIdQueryLineId
      */
-    public function getDirectionBetweenIds(string $id, string $toStopPointId, string $lineId=null): array;
+    public function getDirectionBetweenIds(string $id, string $toStopPointId, ?string $lineId=null): array;
 
     /**
      * Returns the route sections for all the lines that service the given stop point ids

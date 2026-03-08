@@ -27,8 +27,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class BuildClasses extends Command
 {
-    protected static $defaultName        = 'build:classes';
-    protected static $defaultDescription = 'Generate enums and other classes';
+    protected static string $defaultName        = 'build:classes';
+    protected static string $defaultDescription = 'Generate enums and other classes';
 
     private ActionFactory $actions;
 

@@ -6,9 +6,7 @@ namespace Pedros80\TfLphp\Build\Actions;
 
 use Nette\PhpGenerator\ClassType;
 use Pedros80\TfLphp\Build\Actions\Abstractions\FromService;
-use Pedros80\TfLphp\Contracts\LineService;
 use Pedros80\TfLphp\Exceptions\InvalidLine;
-use Pedros80\TfLphp\Factories\ServiceFactory;
 
 final class GenerateLine extends FromService
 {
@@ -16,8 +14,7 @@ final class GenerateLine extends FromService
 
     public function execute(): void
     {
-        /** @var LineService $service */
-        $service = $this->getService(ServiceFactory::LINE);
+        $service = $this->getLineService();
 
         $lines = $this->getParsedLines($service->getRoutes());
 

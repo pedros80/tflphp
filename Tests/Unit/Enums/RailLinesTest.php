@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Enums;
 
 use Pedros80\TfLphp\Enums\RailLines;
