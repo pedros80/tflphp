@@ -14,7 +14,7 @@ final class StopPointInformationCategoriesTest extends TestCase
         $keys = StopPointInformationCategories::ACCESSIBILITY->availableKeys();
 
         foreach ($keys as $key) {
-            $this->assertIsArray($key);
+            $this->assertIsString($key);
         }
     }
 }
