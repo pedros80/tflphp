@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Enums;
 
 use Pedros80\TfLphp\Enums\StopPointInformationCategories;
@@ -11,6 +13,8 @@ final class StopPointInformationCategoriesTest extends TestCase
     {
         $keys = StopPointInformationCategories::ACCESSIBILITY->availableKeys();
 
-        $this->assertIsArray($keys);
+        foreach ($keys as $key) {
+            $this->assertIsString($key);
+        }
     }
 }

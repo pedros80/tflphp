@@ -13,8 +13,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class AccidentStatsGetDetails extends Command
 {
-    protected static $defaultName        = 'accidentStats:getDetails';
-    protected static $defaultDescription = 'Get Stats on Accidents';
+    protected static string $defaultName        = 'accidentStats:getDetails';
+    protected static string $defaultDescription = 'Get Stats on Accidents';
 
     private ServiceFactory $factory;
 

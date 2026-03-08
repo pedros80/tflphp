@@ -12,8 +12,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class GetStationData extends Command
 {
-    protected static $defaultName        = 'build:getStationData';
-    protected static $defaultDescription = 'Download Zip of current, detailed Station Data';
+    protected static string $defaultName        = 'build:getStationData';
+    protected static string $defaultDescription = 'Download Zip of current, detailed Station Data';
 
     public function __construct()
     {
